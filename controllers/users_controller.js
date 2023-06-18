@@ -48,5 +48,5 @@ module.exports.create = async function(req, res) {
 
 // create the sgnin data
 module.exports.createSession=function(req,res){ 
-  
+  return res.redirect('/');
 }
