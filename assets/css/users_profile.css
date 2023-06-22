@@ -1,3 +1,33 @@
-body{
-    background-color: lightblue;
+
+.container{   
+    width: 30%;
+    height: 60%;
+    background-color: white;
+    border:  4px solid lightgray;
+    position: absolute;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    box-shadow: 20px 20px 10px grey;
+     text-align: center;
+}
+ .name{
+    display: flex;
+    font-family: Georgia, serif;
+    font-size: 20px;
+    margin-left: 17px ;
+ }
+ .email{
+    display: flex;
+    font-family: Georgia, serif;
+    font-size: 20px;
+    margin-left: 17px;
+}
+img{
+    height: 200px;
+    width: 200px;
+    margin-left: 265px;
+    margin-top:47px
 }

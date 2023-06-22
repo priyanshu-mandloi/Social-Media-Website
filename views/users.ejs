@@ -1,5 +1,22 @@
 
   <link rel="stylesheet" href="/css/users_profile.css">
-    <h1>
-        Codeial / profile
-    </h1>
+  <div class="container">
+   <div class="profile">
+      <h1>
+         Codeial / profile
+      </h>
+   </div> 
+    <div class="identity">
+      <div class="name">
+        <p>Name : </p> 
+        <p style="margin-left: 5px;"><%=user.name%></p>
+      </div>
+      <div class="email">
+        <p>Email ID : </p>
+        <p style="  word-break: break-word; margin-left: 5px;"><%=user.emails%></p>
+      </div>
+      </div>
+      <div class="image">
+        <img src="/images/img_flwr.gif" alt="image">
+      </div>
+   </div>
