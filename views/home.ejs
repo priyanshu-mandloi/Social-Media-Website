@@ -1,6 +1,8 @@
 <h1>Codeial / <%= title %></h1>
 
 <section id="feed-post">
+   <h4>Posts</h4>
+   <%if(locals.user){%>
   <form action="/posts/create" id="new-post-form" method="POST">
     <textarea
       name="content"
@@ -10,7 +12,7 @@
     ></textarea>
     <input type="submit" value="Post" />
   </form>
-
+  <%}%>
   <!-- Showing the list of content -->
   <div class="post-list-container">
     <ul>
