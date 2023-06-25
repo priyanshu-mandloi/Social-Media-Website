@@ -13,3 +13,4 @@ module.exports.create = function(req, res) {
       return res.status(500).send("Error in creating a post");
     });
 };
+

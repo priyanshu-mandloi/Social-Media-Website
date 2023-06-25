@@ -9,6 +9,7 @@ const postSchema = new mongoose.Schema({
     type:mongoose.Schema.Types.ObjectId,
     ref:'User'
   },
+  // include the array of the ids for all comment in the array itself.
   comment:[
     {
       type:mongoose.Schema.Types.ObjectId,
