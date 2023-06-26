@@ -6,17 +6,28 @@
          Codeial / profile
       </h1>
    </div> 
-    <div class="identity">
-      <div class="name">
-        <p>Name : </p> 
-        <p style="margin-left: 5px;"><%=profile_user.name%></p>
-      </div>
-      <div class="email">
-        <p>Email ID : </p>
-        <p style="  word-break: break-word; margin-left: 5px;"><%=profile_user.emails%></p>
-      </div>
-      </div>
-      <div class="image">
-        <img src="/images/img_flwr.gif" alt="image">
-      </div>
-   </div>
+
+    <%if(user.id == profile_user.id){%>
+            <!-- If the user matches than show the form  -->
+        <form action="/users/update/<%=profile_user.id%>" method="POST">
+            <input type="text" name="name" placeholder="Your Name.." value="<%= profile_user.name%>" required>
+            <input type="email" name="emails" placeholder="Your Email.." value="<%= profile_user.emails%>" required>
+            <input type="submit" value="Update">
+        </form>
+    <%}else{%>
+             <!-- else show the profile info -->
+             <div class="identity">
+              <div class="name">
+                <p>Name : </p> 
+                <p style="margin-left: 5px;"><%=profile_user.name%></p>
+              </div>
+              <div class="email">
+                <p>Email ID : </p>
+                <p style="  word-break: break-word; margin-left: 5px;"><%=profile_user.emails%></p>
+              </div>
+              </div>
+              <div class="image">
+                <img src="/images/img_flwr.gif" alt="image">
+              </div>
+           </div>
+    <%}%>

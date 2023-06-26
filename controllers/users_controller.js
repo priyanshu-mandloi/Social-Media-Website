@@ -13,6 +13,22 @@ module.exports.profile= async function(req,res){
     console.error(err);
   }
 }
+
+// Creating an action for the updation of the users profile
+module.exports.update = async function(req,res){
+  try{
+    if(req.user.id == req.params.id){
+        const user = await User.findByIdAndUpdate(req.params.id,req.body);
+        if(user){
+          return res.redirect('back');
+        }
+    }else{
+      return res.status(401).send('Unauthorized'); 
+    }
+  }catch(err){
+    console.error(err);
+  }
+}
  
 // render the signup page
 module.exports.signUp = function(req,res){
