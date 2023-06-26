@@ -1,11 +1,17 @@
 const User = require("../models/users");
-// const user = require("../models/users");
-
-module.exports.profile=function(req,res){
-    // return res.end('<h1>Profile!</h1>');
-    return res.render('users',{
-        title:"Users"
-    });
+module.exports.profile= async function(req,res){
+  try{
+     const user =  await User.findById(req.params.id);
+    //  console.log("Created a user : ",user);
+     if(user){
+       return res.render('users',{
+         title:"Users",
+         profile_user:user
+        });
+     }
+  }catch(err){
+    console.error(err);
+  }
 }
  
 // render the signup page
