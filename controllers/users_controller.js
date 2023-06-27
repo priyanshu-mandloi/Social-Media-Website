@@ -76,13 +76,15 @@ module.exports.create = async function(req, res) {
 
 // create the signin data
 module.exports.createSession=function(req,res){ 
+  req.flash('success','Logged in succesfully!');
   return res.redirect('/');
 }
 
 // destroy the session
 module.exports.destroySession=function(req,res){
-   req.logout(function(err) {
+  req.logout(function(err) {
     if (err) { return next(err); }
+    req.flash('success','Logged out succesfully!');
     res.redirect('/');
   });
 }

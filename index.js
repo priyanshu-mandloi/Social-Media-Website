@@ -1,17 +1,18 @@
 const express = require("express");
 const cookieParser = require('cookie-parser');
 const port =  8000;
+const flash = require('connect-flash');
 const app = express();
 var expressLayouts = require('express-ejs-layouts');
 const db = require('./config/mongoose');
 const session = require("express-session");
 const passport = require("passport");
 const passportLocal = require('./config/passport-local-config');
-
+const customMware = require('./config/Middleware');
 const  MongoStore = require('connect-mongo');
 
 app.use(express.urlencoded({ extended: true })); 
-app.use(cookieParser());
+app.use(cookieParser());``
 app.use(express.static('./assets')); 
 app.use(expressLayouts); 
 
@@ -48,6 +49,9 @@ app.use(session({
  app.use(passport.session());
 
  app.use(passport.setAuthenticatedUser);
+
+ app.use(flash());
+ app.use(customMware.setFlash);
  // use express router
 app.use('/',require('./routes'));
 
