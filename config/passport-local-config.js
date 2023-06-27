@@ -9,19 +9,20 @@ const User =require('../models/users');
 
 // use the local strategy for the authentication that who has signed in 
 passport.use(new LocalStrategy({
-   usernameField:"emails"
+   usernameField:"emails",
+   passReqToCallback:true
   },
-  async function(emails,password,done){
+  async function(req,emails,password,done){
     // find a user and establish the identity
     try{    
       const user = await User.findOne({emails:emails}); // left wala emeails schema me jo he vo he write wala function ke andar wala he.
          if (!user||user.password!=password) {
-            console.log("Invalid Username/Password");
+            req.flash("error","Invalid Username/Password");
              return done(null, false);  // This take two arguments as first is for  error and second is whether authentication is done or not.
         }
         return done(null,user);
     }catch(e){
-      console.log('Error in finding user --> Passport:', err);
+     req.flash('error',err);
       return done(err);
     }   
   }

@@ -20,9 +20,11 @@ module.exports.update = async function(req,res){
     if(req.user.id == req.params.id){
         const user = await User.findByIdAndUpdate(req.params.id,req.body);
         if(user){
+          req.flash('success', 'Updated!');
           return res.redirect('back');
         }
     }else{
+      req.flash('error', 'Unauthorized!');
       return res.status(401).send('Unauthorized'); 
     }
   }catch(err){
@@ -60,6 +62,7 @@ module.exports.create = async function(req, res) {
   
       const existingUser = await User.findOne({ emails: req.body.emails });
       if (existingUser) {
+        req.flash('success', 'You have signed up, login to continue!');
         return res.redirect('back');
       }
   
@@ -67,8 +70,8 @@ module.exports.create = async function(req, res) {
   
       return res.redirect('/users/sign-in');
     } catch (err) {
-      console.log('Error in creating a user while signing up:', err);
-      // Redirect to sign-in page even if an error occurs
+      req.flash('error', err);
+           // Redirect to sign-in page even if an error occurs
       return res.redirect('/users/sign-in');
     }
   };

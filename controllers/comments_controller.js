@@ -13,10 +13,12 @@ module.exports.create = async function(req, res) {
     console.log("Created a content:",createdComment);
     post.comments.push(createdComment);
     await post.save();
+    req.flash('success','Comment published!');
     res.redirect('/');
   } 
   }catch (err) {
-    console.error(err);
+    req.flash('error',err);
+    return res.redirect('back');
   }
 };
 
@@ -31,12 +33,13 @@ module.exports.destroy = async function(req, res) {
       let postId = comment.post;
       await comment.deleteOne();
       await Post.findByIdAndUpdate(postId, { $pull: { comments: req.params.id } });
+      req.flash('success','Comment is Deleted!');
       return res.redirect('back');
     } else {
       return res.redirect('back');
     }
   } catch (err) {
-    console.log("Error in deleting comment:", err);
+    req.flash('error',err);
     return res.status(500).send("Error in deleting comment");
   }
 };

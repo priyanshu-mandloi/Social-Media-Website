@@ -7,11 +7,12 @@ module.exports.create = function(req, res) {
     user: req.user._id 
   })
     .then(post => {
+      req.flash('success','Post published!');
       return res.redirect('back');
     })
     .catch(err => {
-      console.log("Error in creating a post:", err);
-      return res.status(500).send("Error in creating a post");
+      req.flash('error',err);
+      return res.redirect('back');
     });
 };
 
@@ -28,6 +29,7 @@ module.exports.destroy = function(req,res){
         
         Comment.deleteMany({ post: req.params.id })
           .then(() => {
+            req.flash('success','Post and associated comments gets deleted!');
             return res.redirect('back');
           })
           .catch(err => {
@@ -35,11 +37,12 @@ module.exports.destroy = function(req,res){
             return res.status(500).send("Error in deleting comments");
           });
       } else {
+        req.flash('error','You can not delete this post!');
         res.redirect('back');
       }
     })
     .catch(err => {
-      console.log("Error in finding post:", err);
-      return res.status(500).send("Error in finding post");
+      req.flash('error',err);
+      return res.redirect('back');
     });
 };
