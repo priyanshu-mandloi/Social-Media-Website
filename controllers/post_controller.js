@@ -12,7 +12,7 @@ module.exports.create = function(req, res) {
           data:{
             post:post,
           },
-          message:'Post created!'
+          message:'Post created!'  
         });
       }
       req.flash('success','Post published!');

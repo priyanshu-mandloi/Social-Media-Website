@@ -2,10 +2,17 @@
 
     // method used for submitting the form using AJAX.
    let createPost = function(){
-       let newPostForm = $('#new-post-form');
+       let newPostForm = $('#new-post-form')
+       .sort('-createdAt')
+       .populate('user').
+       populate({
+          path:'comments',
+          populate:{
+              path:'user'
+          }
+       }).exec();
        newPostForm.submit(function(e){
         e.preventDefault();
-        
         $.ajax({
             type:'post',
             url:'/posts/create',
@@ -14,8 +21,22 @@
                let newPost = newPostDom(data.data.post);
                $('#post-list-container>ul').prepend(newPost);
                deletePost($(' .delete-post-button',newPost));
+               new Noty({
+                theme:'relax',
+               text:"Post is created!",
+               type:'success',
+               layout:'topRight',
+               timeout:1500
+             }).show();
             },error : function(error){
                 console.log(error.responseText);
+                new Noty({
+                  theme:'relax',
+                 text:"Error in creating Post",
+                 type:'error',
+                 layout:'topRight',
+                 timeout:1500
+               }).show();
             }    
         });
        });
@@ -62,13 +83,26 @@
          type:'get',
          url:$(deleteLink).prop('href'),
          success:function(data){
+          new Noty({
+            theme:'relax',
+           text:"Post is Deleted!",
+           type:'success  ',
+           layout:'topRight',
+           timeout:1500
+         }).show();
              $(`#post-${data.data.post_id}`).remove();
          },error:function(error){
+          new Noty({
+            theme:'relax',
+           text:"Error in Deleting a Post!",
+           type:'error',
+           layout:'topRight',
+           timeout:1500
+         }).show();
             console.log(error.responseText);
          }
       });
     });
    }
-
    createPost();
 }
