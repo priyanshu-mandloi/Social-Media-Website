@@ -31,12 +31,12 @@ let storage = multer.diskStorage({
       cb(null, path.join(__dirname,'..',AVATAR_PATH));
     },
     filename: function (req, file, cb) {
-      const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9);
-      cb(null, file.fieldname + '-' + uniqueSuffix);
+      // const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9);
+      cb(null, file.fieldname + '-' + Date.now());
     }
   });
 
-  // static
+  // static methods
 userSchema.statics.uploadedAvatar = multer({storage:storage}).single('avatar');
 userSchema.statics.avatarPath = AVATAR_PATH;
   

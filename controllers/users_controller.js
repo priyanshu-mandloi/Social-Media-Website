@@ -16,22 +16,31 @@ module.exports.profile= async function(req,res){
 
 // Creating an action for the updation of the users profile
 module.exports.update = async function(req,res){
-  try{
-    if(req.user.id == req.params.id){
-        const user = await User.findByIdAndUpdate(req.params.id,req.body);
-        if(user){
-          req.flash('success', 'Updated!');
+  if(req.user.id == req.params.id){
+      try{
+        let user = await User.findById(req.params.id);
+        User.uploadedAvatar(req,res,function(err){
+          if(err){console.log("*****Multer Error: ",err)}
+          
+          user.name = req.body.name;
+          user.emails = req.body.emails;
+          
+          if(req.file){
+            // Saving the path of the uploaded file into the avatar filed in the user.
+            user.avatar = User.avatarPath + '/' + req.file.filename;
+          }
+          user.save();
           return res.redirect('back');
-        }
+        });
+      }catch(err){
+        req.flash('error',err);
+        return res.redirect('back');
+      }
     }else{
-      req.flash('error', 'Unauthorized!');
-      return res.status(401).send('Unauthorized'); 
-    }
-  }catch(err){
-    console.error(err);
+    req.flash('error', 'Unauthorized!');
+    return res.status(401).send('Unauthorized'); 
   }
 }
- 
 // render the signup page
 module.exports.signUp = function(req,res){
    if(req.isAuthenticated()){
