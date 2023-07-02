@@ -1,4 +1,6 @@
 const User = require("../models/users");
+const fs = require('fs');
+const path = require('path');
 module.exports.profile= async function(req,res){
   try{
      const user =  await User.findById(req.params.id);
@@ -26,6 +28,12 @@ module.exports.update = async function(req,res){
           user.emails = req.body.emails;
           
           if(req.file){
+           
+             // For deleting the modules we will require the file system and path
+             if(user.avatar){
+              fs.unlinkSync(path.join(__dirname,'..',user.avatar));
+             }
+
             // Saving the path of the uploaded file into the avatar filed in the user.
             user.avatar = User.avatarPath + '/' + req.file.filename;
           }
