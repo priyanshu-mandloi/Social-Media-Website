@@ -14,6 +14,8 @@ const  MongoStore = require('connect-mongo');
 app.use(express.urlencoded({ extended: true })); 
 app.use(cookieParser());``
 app.use(express.static('./assets')); 
+//Make the upload part available to browser
+app.use('/uploads',express.static(__dirname + '/uploads'));
 app.use(expressLayouts); 
 
 app.set('layout extractStyles',true);
