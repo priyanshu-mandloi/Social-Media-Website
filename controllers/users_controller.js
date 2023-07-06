@@ -16,6 +16,8 @@ module.exports.profile= async function(req,res){
   }
 }
 
+
+
 // Creating an action for the updation of the users profile
 module.exports.update = async function(req,res){
   if(req.user.id == req.params.id){
