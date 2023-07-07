@@ -13,7 +13,7 @@ module.exports.index = async function(req,res){
             path:'user'
         }
      }).exec();
-    return res.json(200,{
+    return res.status(200).json({
        message:'List of Post',
        posts:posts
     });
@@ -22,21 +22,31 @@ module.exports.index = async function(req,res){
 // module.exports.destroy =  async function(req,res){
    
 
-module.exports.destroy = function(req,res){
-    Post.findById(req.params.id)
-      .then(post => {
-        
-          post.deleteOne();
-          
-          Comment.deleteMany({ post: req.params.id })
-          return res.json(200,{
-            message:"Post and associated comments get deleted!"
-          }); 
-      })
-      .catch(err => {
-       console.log('*******',err);
-        return res.json(500,{
-            message:"Internal Server Error!"
-        });
+module.exports.destroy = async function(req, res) {
+  try {
+       let post = await Post.findById(req.params.id);
+      if (!post) {
+          return res.status(404).json({
+              message: "Post not found!"
+          });
+      }
+
+      if (post.user.toString() ==  req.user.id) {
+          await post.deleteOne();
+          await Comment.deleteMany({ post: req.params.id });
+
+          return res.status(200).json({
+              message: "Post and associated comments deleted!"
+          });
+      } else {
+          return res.status(401).json({
+              message: "You cannot delete this post!"
+          });
+      }
+  } catch (err) {
+      console.log(err);
+      return res.status(500).json({
+          message: "Internal Server Error!"
       });
-  };
+  }
+};

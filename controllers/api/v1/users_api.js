@@ -8,10 +8,10 @@ module.exports.createSession= async function(req,res){
             message:"Invalid username and password"
         });
        }
-       return res.json(200,{
+       return res.status(200).json({
            message:"Sign in successfully here is your token keep it safe!",
            data:{
-            token:jwt.sign(user.toJSON(),'codeial',{expiresIn: '10000'})
+            token:jwt.sign(user.toJSON(),'codeial',{expiresIn: '100000'})
            }
        });
   }catch(err){
