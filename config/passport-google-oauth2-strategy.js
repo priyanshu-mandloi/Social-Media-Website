@@ -8,7 +8,7 @@ const { Router } = require("express");
 passport.use(
   new googleStrategy(
     {
-      client_id:
+      clientID:
         "955434243353-f6fihg550sqilp4qamb30i5si2f1emak.apps.googleusercontent.com",
       clientSecret: "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",
       callbackURL: "http://localhost:8000/users/auth/google/callback",
