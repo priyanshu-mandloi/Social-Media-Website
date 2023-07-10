@@ -1,15 +1,16 @@
-const { data } = require('jquery');
+// const { data } = require('jquery');
 const nodemailer = require('nodemailer');
 const path = require('path');
 // Setting up the configuration to send the mail (i.e setting up the transporter).
-const transporter = nodemailer.createTestAccount({
-    service:"gmail",
+const transporter = nodemailer.createTransport({
+    service:"Gmail",
     host:"smtp.gmail.com",
     port:587,
-    secure:false,                                  
+    secure:true,                                
     auth:{
-        user:"priyanshumandli999@gmail.com",
-        pass:"pm#-@456"
+        user:"priyashumandloi999@gmail.com",
+        pass:" pm#-@456"
+        // pass:"niglxcbliaguxxsh"
     }
 });
 
@@ -29,6 +30,7 @@ let renderTemplate = (data,relativePath)=>{
     )
     return mailHTML;
 }
+
 
 module.exports = {
     transporter:transporter,

@@ -28,7 +28,7 @@ app.set('views','./views');
 
 // mongo cookie is used to store the session cookie in the db
 const sessionStore = new MongoStore({
- mongoUrl: 'mongodb://localhost:27017/codeial_db',
+ mongoUrl: 'mongodb://127.0.0.1:27017/codeial_db',
  autoRemove: 'disabled',
 });
 app.use(session({

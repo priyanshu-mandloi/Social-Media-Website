@@ -1,5 +1,6 @@
 const Comment = require("../models/comment");
 const Post = require("../models/posts");
+const commentsMailer = require('../mailers/comments_mailer');
 
 module.exports.create = async function(req, res) {
   try {
@@ -13,6 +14,9 @@ module.exports.create = async function(req, res) {
     console.log("Created a content:",createdComment);
     post.comments.push(createdComment);
     await post.save();
+   // populate the user every time
+   comment = await comment.populate('user','name emails').execPopulate();
+   commentsMailer.newComment(comment);
     if(req.xhr){
       return res.status(200).json({
         data:{
