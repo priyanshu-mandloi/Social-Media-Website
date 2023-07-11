@@ -19,7 +19,7 @@ exports.newComment = async (comment) => {
                 }
             });
         });
-        console.log('Message sent', info);
+        // console.log('Message sent', info);
     } catch (err) {
         console.log('Error in delivering the mail', err);
     }
