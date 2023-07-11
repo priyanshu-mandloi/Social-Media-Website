@@ -16,7 +16,7 @@ module.exports.home = async function(req,res){
     const users = await User.find({}).exec();
     if(users){        
         const postArray = Array.isArray(posts) ? posts : [];
-        console.log(postArray);
+        // console.log(postArray);
           return res.render('home',{
              title:'Codeial | Home',
              posts:postArray,
