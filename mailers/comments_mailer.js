@@ -3,15 +3,14 @@ const nodemailer = require('../config/Nodemailer');
 
 exports.newComment = async (comment) => {
     try {
-
-        // let htmlString  = nodemailer.renderTemplate({comment:comment},'/comments/new_comment.ejs');
+        let htmlString  = nodemailer.renderTemplate({comment:comment},'/comments/new_comment.ejs');
         console.log("Inside newcomment mailer", comment);
         const info = await new Promise((resolve, reject) => {
             nodemailer.transporter.sendMail({
                 from: "priyanshumandloigurukul@gmail.com",
                 to: comment.user.emails,
                 subject: "New Comment Published!",
-                html: "<h1>Yup, I have send it</h1>"
+                html: htmlString
             }, (err, info) => {
                 if (err) {
                     reject(err);
