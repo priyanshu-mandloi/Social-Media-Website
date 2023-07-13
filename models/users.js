@@ -21,7 +21,19 @@ const userSchema = new mongoose.Schema({
    avatar:{
      type:String,
      
+   },
+
+   accessToken:
+   {
+       type: String,
+       default: 'abc'
+   },
+   isTokenValid:
+   {
+       type: Boolean,
+       default: false
    }
+
 },{ 
     timestamps: true
 });
