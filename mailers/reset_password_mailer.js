@@ -14,7 +14,7 @@ try{
             from: 'priyanshumandloigurukul@gmail.com',
             to: user.emails,
             subject: "Reset Your Password",
-            html: htmlString
+            html: htmlString,
         },
         (err, info) =>
         {

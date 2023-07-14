@@ -2,6 +2,7 @@
 const nodemailer = require('nodemailer');
 const ejs =  require('ejs');
 const path = require('path');
+
 // Setting up the configuration to send the mail (i.e setting up the transporter).
 const transporter = nodemailer.createTransport({
     service:"Gmail",
@@ -31,7 +32,7 @@ let renderTemplate = (data,relativePath)=>{
     )
     return mailHTML;
 }
-
+ 
 module.exports = {
     transporter:transporter,
     renderTemplate:renderTemplate
