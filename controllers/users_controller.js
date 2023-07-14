@@ -2,7 +2,8 @@ const User = require("../models/users");
 const fs = require('fs');
 const path = require('path');
 const crypto = require('crypto');
-const queue = require('../config/kue');
+const queue = require('../config/Kue');
+const reset_Password = require("../mailers/reset_password_mailer");
 const userEmailWorker = require('../workers/user_email_worker');
 module.exports.profile= async function(req,res){
   try{
@@ -134,9 +135,12 @@ module.exports.resetPassMail = async function(req, res) {
         user.isTokenValid = true;
         await user.save();
       }
-
-      const job = await queue.create('user-emails', user).save();
-
+        
+      reset_Password.resetPassword(user);
+      
+      // const job = await queue.create('user-emails', user).save();
+      // console.log(job);
+         
       req.flash('success', 'Password reset link sent. Please check your mail');
       return res.redirect('/');
     } else {

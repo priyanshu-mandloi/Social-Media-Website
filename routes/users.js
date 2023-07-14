@@ -21,7 +21,7 @@ router.get('/sign-out',usersController.destroySession);
 router.get('/auth/google',passport.authenticate('google',{scope:['profile','email']}));
 router.get('/auth/google/callback',passport.authenticate('google',{failureRedirect:'/users/sign-in'}),usersController.createSession);
 
-
+// This is for the reset password
 router.get('/reset-password', usersController.resetPassword);
 router.post('/send-reset-pass-mail', usersController.resetPassMail);
 router.get('/reset-password/:accessToken', usersController.setPassword);

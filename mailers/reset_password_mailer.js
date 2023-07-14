@@ -2,11 +2,12 @@ const nodemailer = require('../config/Nodemailer');
 
 
 // this is another way of exporting a method
-exports.resetPassword = (user) => 
+exports.resetPassword = async(user) => 
 {
-    let htmlString = nodemailer.renderTemplate({user: user}, '/users/password_reset.ejs');
+try{
+    let htmlString = nodemailer.renderTemplate({user: user}, '/comments/password_reset.ejs');
     console.log('Inside resetPassword Mailer');
-
+    const info = await new Promise((resolve, reject) => {
     nodemailer.transporter.sendMail
     (
         {
@@ -17,13 +18,15 @@ exports.resetPassword = (user) =>
         },
         (err, info) =>
         {
-            if(err)
-            {
-                console.log('Error in sending mail', err);
-                return;
+            if (err) {
+                reject(err);
+            } else {
+                resolve(info);
             }
-            //console.log('Message sent', info);
-            return;
-        }
-    );
+        });
+});
+}catch(err){
+   console.log("Error due to send mails",err);
+   return;
+}
 }
