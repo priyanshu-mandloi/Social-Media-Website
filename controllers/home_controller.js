@@ -11,8 +11,15 @@ module.exports.home = async function(req,res){
         path:'comments',
         populate:{
             path:'user'
+        },
+      populate :{
+        //   This is for the comments
+          path: 'likes'
         }
-     }).exec();
+     })
+    //  This is for the posts
+     .populate('likes')
+     .exec();
     const users = await User.find({}).exec();
     if(users){        
         const postArray = Array.isArray(posts) ? posts : [];

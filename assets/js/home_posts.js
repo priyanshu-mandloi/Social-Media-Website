@@ -1,5 +1,4 @@
 {
-
     // method used for submitting the form using AJAX.
    let createPost = function(){
        let newPostForm = $('#new-post-form')
@@ -21,6 +20,12 @@
                let newPost = newPostDom(data.data.post);
                $('#post-list-container>ul').prepend(newPost);
                deletePost($(' .delete-post-button',newPost));
+
+               new PostComments(data.data.post._id);
+
+               // Added for the liking 
+               new toggleLike($(' .toggle-like-button', newPost));
+               
                new Noty({
                 theme:'relax',
                text:"Post is created!",
@@ -56,6 +61,12 @@
         <small>
           ${post.user.name}
        </small>
+       <br>
+       <small>
+       <a class="toggle-like-button" data-likes="0" href="/likes/toggle/?id=${post._id}&type=Post">
+           0 Likes
+           </a>
+      </small>
       </p>
       <div class="post-comments">
        <form action="/comments/create" method="POST">

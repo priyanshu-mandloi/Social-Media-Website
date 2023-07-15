@@ -1,5 +1,6 @@
 const Comment = require("../models/comment");
 const Post = require("../models/posts");
+const Like = require('../models/likes');
 const commentMailer = require('../mailers/comments_mailer.js');
 const queue = require('../config/Kue');
 const commentEmailWorker = require('../workers/comment_emails_worker');
@@ -57,7 +58,12 @@ module.exports.destroy = async function(req, res) {
     if (comment.user.toString() === req.user.id) {
       let postId = comment.post;
       await comment.deleteOne();
+
       await Post.findByIdAndUpdate(postId, { $pull: { comments: req.params.id } });
+
+      // Delete all the likes associated to comments
+      await Like.deleteMany({likeable:comment._id,onModel:'Comment'});
+      
       if(req.xhr){
         return res.status(200).json({
           data:{

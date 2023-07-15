@@ -13,6 +13,10 @@
                let newComment = newCommentDom(data.data.comment);
                $('#post-comments-list>ul').prepend(newComment);
                deleteComment($(' .delete-comment-button',newComment));
+                
+              //  Added the likes for the comments
+              new ToggleLike($(' .toggle-like-button', newComment));
+
                new Noty({
                 theme:'relax',
                text:"Comment is created!",
@@ -47,6 +51,12 @@
        <br>
         <small>
           ${comment.user.name}
+        </small>
+        <br>
+        <small>
+            <a class="toggle-like-button" data-likes="0" href="/likes/toggle/?id=${comment._id}&type=Comment">
+                0 Likes
+            </a>
         </small>
      </p>  
    </li>`
