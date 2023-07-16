@@ -15,14 +15,14 @@ module.exports.toggleLike = async function(req,res){
                 likeable = await Comment.findById(req.query.id).populate('likes');
             }
             // console.log("Query",req.query);
-            console.log("Likeable:",likeable);
+            // console.log("Likeable:",likeable);
             // Checking if the Likes are already present than delete the likes
             let existingLike = await Like.findOne({
                 likeable:req.query.id,                   // this is causing error
                 onModel:req.query.type,
                 user:req.user._id
             });
-            console.log("Print the Existing like :", existingLike);
+            // console.log("Print the Existing like :", existingLike);
             if(existingLike){
                 // if the like exist than we will simply delete it
                 likeable.likes.pull(existingLike._id);
@@ -33,7 +33,7 @@ module.exports.toggleLike = async function(req,res){
                 // Make a new like
                 let newLike = await Like.create({
                    user:req.user._id,
-                   likeable:req.query._id,
+                   likeable:req.query.id,
                    onModel:req.query.type,
                 });
                 // Pushing the like to database
@@ -41,7 +41,7 @@ module.exports.toggleLike = async function(req,res){
                 likeable.likes.push(newLike._id);
                 likeable.save();
             }
-            console.log("Printing the deleted",deleted);
+            // console.log("Printing the deleted",deleted);
         return res.status(200).json({
             message:"Request Successful",
             data:{
@@ -55,3 +55,4 @@ module.exports.toggleLike = async function(req,res){
      });
     }
 }
+
