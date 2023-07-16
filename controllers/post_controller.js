@@ -1,6 +1,6 @@
 const Post = require('../models/posts');
 const Comment = require('../models/comment');
-const Like = require('../models/likes');
+const Like = require('../models/like');
 module.exports.create = function(req, res) {
    Post.create({
     content: req.body.content,

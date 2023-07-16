@@ -1,10 +1,9 @@
-const Like = require('../models/likes');
+const Like = require('../models/like');
 const Post = require('../models/posts');
 const Comment = require('../models/comment');
 
 module.exports.toggleLike = async function(req,res){
     try{
-
             // url will be shaped as --> likes/toggle/?id=abcdef&type=POST
             let likeable;
             let deleted = false;
@@ -15,12 +14,13 @@ module.exports.toggleLike = async function(req,res){
                 // it means we are in the comments
                 likeable = await Comment.findById(req.query.id).populate('likes');
             }
-            console.log("Query",req.query);
+            // console.log("Query",req.query);
+            console.log("Likeable:",likeable);
             // Checking if the Likes are already present than delete the likes
-            const existingLike = await Like.findOne({
-                user:req.user._id,
-                likeable:req.query.id,
-               onModel:req.query.type
+            let existingLike = await Like.findOne({
+                likeable:req.query.id,                   // this is causing error
+                onModel:req.query.type,
+                user:req.user._id
             });
             console.log("Print the Existing like :", existingLike);
             if(existingLike){
@@ -36,12 +36,10 @@ module.exports.toggleLike = async function(req,res){
                    likeable:req.query._id,
                    onModel:req.query.type,
                 });
-
                 // Pushing the like to database
                 // likeable.likes.push(like._id);
                 likeable.likes.push(newLike._id);
                 likeable.save();
-
             }
             console.log("Printing the deleted",deleted);
         return res.status(200).json({
@@ -49,8 +47,7 @@ module.exports.toggleLike = async function(req,res){
             data:{
                 deleted:deleted
             }
-        })    
-        
+        })         
     }catch(err){
      console.log("Error in liking Post!",err);
      return res.status(500).json({

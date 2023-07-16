@@ -14,7 +14,7 @@ const likeSchema = new mongoose.Schema({
     // this is the  filed which is defined for the type of the likeable object since this is a dynamic reference.
     onModel:{
        type:String,
-       required:true ,
+       required:true,
        enum:['Post', 'Comment']            // This will ensure that only Post and comments can have the likes here.
     }
 },{

@@ -17,7 +17,6 @@ module.exports.home = async function(req,res){
           path: 'likes'
         }
      })
-    //  This is for the posts
      .populate('likes')
      .exec();
     const users = await User.find({}).exec();
