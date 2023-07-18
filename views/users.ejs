@@ -89,6 +89,21 @@
       <div class="mt-4 -ml-60 font-sans text-xl">
         <p><%=profile_user.emails%></p>
       </div>
+
+      
+
+      <br>
+      <%if(!locals.are_friends){%>
+        <button type="button" class="btn btn-warning text-light">
+          <a href="/users/profile/<%=profile_user._id%>/toggle_friend" id="add-friend">Add Friend</a>
+        </button>
+        <%}else{%>
+          <button type="button" class="btn btn-warning text-light">
+          <a type="button" href="/users/profile/<%=profile_user._id%>/toggle_friend" id="remove-friend" >Remove Friend</a>
+          </button>
+      <%}%>
+
+
     </div>
   </div>
 </div>
@@ -100,3 +115,4 @@
   crossorigin="anonymous"
 ></script>
 <script type="text/javascript" src="/js/users_preview.js"></script>
+<script  src='/js/toggle_friend.js'></script>

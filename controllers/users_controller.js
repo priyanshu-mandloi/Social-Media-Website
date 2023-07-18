@@ -3,16 +3,29 @@ const fs = require('fs');
 const path = require('path');
 const crypto = require('crypto');
 const queue = require('../config/Kue');
+const Friendship = require('../models/friendship');
 const reset_Password = require("../mailers/reset_password_mailer");
 const userEmailWorker = require('../workers/user_email_worker');
 module.exports.profile= async function(req,res){
   try{
      const user =  await User.findById(req.params.id);
-    //  console.log("Created a user : ",user);
+     let are_friends = false;
+     const friendship = await Friendship.findOne({
+       $or: [
+         { from_user: req.user._id, to_user: req.params.id },
+         { from_user: req.params.id, to_user: req.user._id }
+       ]
+     });
+ 
+     if (friendship) {
+       are_friends = true;
+     }
+     
      if(user){
        return res.render('users',{
          title:"Users",
-         profile_user:user
+         profile_user:user,
+         are_friends:are_friends
         });
      }
   }catch(err){
@@ -156,7 +169,7 @@ module.exports.resetPassMail = async function(req, res) {
 module.exports.setPassword = async function(req, res) {
   try {
     const user = await User.findOne({ accessToken: req.params.accessToken });
-
+      
     if (user.isTokenValid) {
       return res.render('reset_password', {
         title: 'Codeial | Reset Password',
@@ -197,3 +210,11 @@ module.exports.updatePassword = async function(req, res) {
     return;
   }
 };
+
+
+
+
+
+
+
+

@@ -19,7 +19,7 @@
             success:function(data){
                let newPost = newPostDom(data.data.post);
                $('#post-list-container>ul').prepend(newPost);
-               deletePost($(' .delete-post-button',newPost));
+               deletePost($('.delete-post-button',newPost));
 
                new PostComments(data.data.post._id);
 

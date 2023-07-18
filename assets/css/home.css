@@ -9,5 +9,6 @@
     width: 30%;
     padding: 10px;
     border: 1px solid lightgray;
-    height: 37rem;
+    border-bottom: none;
+    /* height: 37rem; */
 }

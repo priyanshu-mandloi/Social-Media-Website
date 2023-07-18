@@ -20,15 +20,31 @@
   </section>
   
   <section id="user-friends">
-     <h4>Friends</h4>
+      <h4>
+          FRIENDS
+      </h4>
+          <%if(locals.friends.length==0){%>
+          <h6>Friends list is empty.</h6>
+          <%}%>
+          <%for(fr of locals.friends){%>
+              <div>
+                     <a href="/users/profile/<%=fr.friend_id%>">
+                      <%=fr.friend_name%>
+                  </a>
+              </div>
+          <%}%>
+
+    <h4>Users</h4>
      <% for(u of all_users){%>
         <p>
            <a href="/users/profile/<%= u.id %>"><%= u.name %></a>
         </p>  
       <%}%>
-  </section>
-</div>
 
+      <%- include('_chatBox') -%>
+    
+    </section>
+</div>
 <script src="/js/home_comments.js"></script>
 <script src="/js/home_posts.js"></script>
 <script src="js/toggle_likes.js"></script>
@@ -38,3 +54,18 @@
         let toggleLike = new ToggleLike(self);
     });
 </script>
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
