@@ -1,10 +1,16 @@
 <link rel="stylesheet" href="/css/chatBox.css">
 
-<div class="container">
-    <div class="other-msg">Other message</div>
-    <div class="self-msg">Self message</div>
-    <div class="inputs">
-        <input type="text" placeholder="Type a message here.." class="input1">
-        <input type="button" value="Send" class="input2">
+<div class="container" id="user-chat-box">
+    <ul style="list-style-type: none;" id="chat-message-list" class="chat">
+      <li class="other-msg">
+        <span>Other message</span>
+      </li>
+      <li class="self-msg"> 
+        <span>Self message</span>
+      </li>
+    </ul>
+    <div class="inputs" id="chat-message-input-container">
+        <input type="text" placeholder="Type a message here.." class="input1" id="chat-message-input">
+        <button  class="input2" id="send-message">Send</button>
     </div>
 </div>

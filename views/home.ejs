@@ -41,8 +41,9 @@
         </p>  
       <%}%>
 
+    <% if(locals.user){%>
       <%- include('_chatBox') -%>
-    
+    <%}%>
     </section>
 </div>
 <script src="/js/home_comments.js"></script>
@@ -54,8 +55,15 @@
         let toggleLike = new ToggleLike(self);
     });
 </script>
+<!-- Added a cdn link for the frontend for the websockets -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.7.1/socket.io.js"></script>
+<script src="/js/chat_engine.js"></script>
 
-
+<%if(locals.user){%>
+  <script>
+      new ChatEngine('user-chat-box','<%= locals.user.emails%>');   
+ </script>
+<%}%>
 
 
 

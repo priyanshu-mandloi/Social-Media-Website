@@ -43,6 +43,7 @@
     "passport-local": "^1.0.0",
     "request": "^2.88.2",
     "sass-middleware": "^0.0.3",
+    "socket.io": "^4.7.1",
     "uuid": "^7.0.0"
   }
 }

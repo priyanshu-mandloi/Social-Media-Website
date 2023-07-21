@@ -7,19 +7,25 @@ var expressLayouts = require('express-ejs-layouts');
 const db = require('./config/mongoose');
 const session = require("express-session");
 const passport = require("passport");
+const enviornment = require('./config/enviornment');
 const passportLocal = require('./config/passport-local-config');
 const passportJWT = require('./config/passport-jwt-strategy');
 const passportGoogle = require('./config/passport-google-oauth2-strategy');
 const customMware = require('./config/Middleware');
 const  MongoStore = require('connect-mongo');
 
+// Setting up for the web sockets
+const chatServer = require('http').createServer(app);
+const chatSockets = require('./config/chats_socket').chatSockets(chatServer);
+chatServer.listen(5000);
+console.log("Chat server is listening on port: 5000");
+
 app.use(express.urlencoded({ extended: true })); 
-app.use(cookieParser());``
-app.use(express.static('./assets')); 
+app.use(cookieParser());
+app.use(express.static(enviornment.asset_path)); 
 //Make the upload part available to browser
 app.use('/uploads',express.static(__dirname + '/uploads'));
 app.use(expressLayouts); 
-
 app.set('layout extractStyles',true);
 app.set('layout extractScripts',true);
 // for set up view engine.
@@ -34,7 +40,7 @@ const sessionStore = new MongoStore({
 app.use(session({
     name:"codeial",
     // Todo to change the deployment before in production mode.
-    secret:'blahsomething',
+    secret:enviornment.session_cookie_key,
     saveUninitialized:false,
     resave:false,
     cookie:{
@@ -66,7 +72,6 @@ app.listen(port,function(err){
     // By interpolation method (use the tick)
     console.log(`Error in running the server:  ${err}`);
 }
-
  console.log(`Server is running on the port : ${port}`);
 });
 
