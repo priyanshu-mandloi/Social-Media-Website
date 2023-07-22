@@ -1,4 +1,6 @@
 const express = require("express");
+const enviornment = require('./config/enviornment');
+const logger = require('morgan'); 
 const cookieParser = require('cookie-parser');
 const port =  8000;
 const flash = require('connect-flash');
@@ -7,13 +9,12 @@ var expressLayouts = require('express-ejs-layouts');
 const db = require('./config/mongoose');
 const session = require("express-session");
 const passport = require("passport");
-const enviornment = require('./config/enviornment');
 const passportLocal = require('./config/passport-local-config');
 const passportJWT = require('./config/passport-jwt-strategy');
 const passportGoogle = require('./config/passport-google-oauth2-strategy');
 const customMware = require('./config/Middleware');
 const  MongoStore = require('connect-mongo');
-
+const { env } = require("process");
 // Setting up for the web sockets
 const chatServer = require('http').createServer(app);
 const chatSockets = require('./config/chats_socket').chatSockets(chatServer);
@@ -22,9 +23,12 @@ console.log("Chat server is listening on port: 5000");
 
 app.use(express.urlencoded({ extended: true })); 
 app.use(cookieParser());
-app.use(express.static(enviornment.asset_path)); 
+app.use(express.static('./assets')); 
+
+
 //Make the upload part available to browser
 app.use('/uploads',express.static(__dirname + '/uploads'));
+app.use(logger(enviornment.morgan.mode,enviornment.morgan.options));
 app.use(expressLayouts); 
 app.set('layout extractStyles',true);
 app.set('layout extractScripts',true);
