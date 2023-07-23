@@ -1,0 +1,1 @@
+function showPreview(e){var t;0<e.target.files.length&&(e=URL.createObjectURL(e.target.files[0]),(t=document.getElementById("file-ip-1-preview")).src=e,t.style.display="block",upload.style.display="block")}
