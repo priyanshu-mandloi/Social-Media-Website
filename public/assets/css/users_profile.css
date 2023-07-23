@@ -1,0 +1,24 @@
+
+body{
+    margin: 0;
+    padding: 0;
+    background-color: black;
+}
+.profile{
+    top: 210px;
+}
+.container{
+    height: 560px;
+}
+.form-data{
+    margin-top: 104px;
+    margin-left: 276px;
+}
+.email-btn{
+    border-radius: 50px;
+    -ms-flex-align: center;
+        align-items: center;
+    padding-left: 10px;
+    height: 35px;
+}
+/*# sourceMappingURL=users_profile.css.map */
