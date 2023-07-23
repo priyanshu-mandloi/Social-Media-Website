@@ -6,17 +6,22 @@ const uglify = require('gulp-uglify');
 // const rename = require('gulp-rename');
 const imagemin = require('gulp-imagemin');
 const clean = require('gulp-clean');
+// const rev = require('gulp-rev');
+// const revRewrite = require('gulp-rev-rewrite'); 
+// const revDelete = require('gulp-rev-delete-original');
+
 gulp.task('css', () => {
   console.log("compressing css..");
   // Source path for your main CSS file
   const sourcePath = './assets/css/**/*.css';
-  // Destination path for processed CSS
-  const destPath = './public/assets/css';
+  // Destination path for processed CSS 
+  const destPath = './public/assets';
   return gulp
     .src(sourcePath)
     .pipe(sourcemaps.init())
     .pipe(postcss([autoprefixer()]))
     .pipe(sourcemaps.write('.'))
+    .pipe(gulp.dest(destPath))
     .pipe(gulp.dest(destPath));
 });
 

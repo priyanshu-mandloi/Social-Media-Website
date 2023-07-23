@@ -5,6 +5,7 @@ const cookieParser = require('cookie-parser');
 const port =  8000;
 const flash = require('connect-flash');
 const app = express();
+require('./config/view-helper')(app);
 var expressLayouts = require('express-ejs-layouts');
 const db = require('./config/mongoose');
 const session = require("express-session");
