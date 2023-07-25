@@ -1,0 +1,74 @@
+.container{
+    position: fixed;
+    bottom: 50px;
+    right: 10px;
+    border: 1px dashed brown;
+    height: 350px;
+    width: 300px;
+    background: white;
+    padding: 5px;
+    box-shadow: 1px 1px 1px 1px lightgrey;
+
+}
+.chat{
+    list-style: none;
+    padding: 10px;
+    height: 70%;
+    background-color: white;
+    overflow: auto;
+}
+
+.other-msg {
+    text-align: left;
+    padding: 5px;
+ }
+.other-msg span {
+      display: inline-block;
+      padding: 15px;
+      background-color: #ffa0a0; 
+    }
+.self-msg {
+    text-align: right;
+    padding: 5px;
+ }
+   .self-msg span {
+      display: inline-block;
+      padding: 15px;
+      background-color: #a0dcff; 
+    }
+
+
+.inputs{
+    height: 24%;
+    width: 100%;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: row;
+        flex-direction: row;
+}
+.input1{
+    height: 62%;
+    width: 70%;
+    outline: none;
+}
+.input1:hover{
+    border: 4px solid lightskyblue;
+}
+.input2{
+    height: 69%;
+    width: 30%;
+    font-size: 25px;
+    color: white;
+    border: none;
+    background: #58d258;
+}
+
+
+
+
+
+
+
+
+
+/*# sourceMappingURL=chatBox.css.map */

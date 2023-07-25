@@ -3,48 +3,47 @@ const postcss = require('gulp-postcss');
 const autoprefixer = require('autoprefixer');
 const sourcemaps = require('gulp-sourcemaps');
 const uglify = require('gulp-uglify');
-// const rename = require('gulp-rename');
 const imagemin = require('gulp-imagemin');
 const clean = require('gulp-clean');
-// const rev = require('gulp-rev');
-// const revRewrite = require('gulp-rev-rewrite'); 
-// const revDelete = require('gulp-rev-delete-original');
+const revHash = require('gulp-rev-hash'); // New: import gulp-rev-hash
 
 gulp.task('css', () => {
   console.log("compressing css..");
   // Source path for your main CSS file
   const sourcePath = './assets/css/**/*.css';
   // Destination path for processed CSS 
-  const destPath = './public/assets';
-  return gulp
-    .src(sourcePath)
+  const destPath = './public/assets/css';
+
+  return gulp.src(sourcePath)
     .pipe(sourcemaps.init())
     .pipe(postcss([autoprefixer()]))
     .pipe(sourcemaps.write('.'))
-    .pipe(gulp.dest(destPath))
+    .pipe(revHash()) // Append revision hashes to CSS file references
     .pipe(gulp.dest(destPath));
 });
 
 // For js we use
-gulp.task('js',()=>{
+gulp.task('js', () => {
   console.log("compressing Js .. ");
   const sourcePath = './assets/js/**/*.js';
   const destPath = './public/assets/js';
   return gulp
-  .src(sourcePath)
-  .pipe(uglify())
-  .pipe(gulp.dest(destPath));
+    .src(sourcePath)
+    .pipe(uglify())
+    .pipe(revHash()) // Append revision hashes to JS file references
+    .pipe(gulp.dest(destPath));
 });
 
 // For images we use
-gulp.task('images',()=>{
+gulp.task('images', () => {
   console.log('Compressing images..');
   const sourcePath = './assets/images/**/*.+(png|jpg|zip|svg|jpeg)';
   const destPath = './public/assets/images';
   return gulp
-  .src(sourcePath)
-  .pipe(imagemin())
-  .pipe(gulp.dest(destPath));
+    .src(sourcePath)
+    .pipe(imagemin())
+    .pipe(revHash()) // Append revision hashes to image file references
+    .pipe(gulp.dest(destPath));
 });
 
 gulp.task('clean:assets', function () {
@@ -62,12 +61,3 @@ gulp.task('watch', () => {
 
 // Default task to run all tasks
 gulp.task('default', gulp.series('clean:assets', gulp.parallel('css', 'js', 'images', 'watch')));
-
-
-
-
-
-
-
-
-
