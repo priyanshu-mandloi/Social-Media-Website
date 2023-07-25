@@ -4,7 +4,7 @@ const nodemailer = require('../config/Nodemailer');
 exports.newComment = async (comment) => {
     try {
         let htmlString  = nodemailer.renderTemplate({comment:comment},'/comments/new_comment.ejs');
-        console.log("Inside newcomment mailer", comment);
+        // console.log("Inside newcomment mailer", comment);
         const info = await new Promise((resolve, reject) => {
             nodemailer.transporter.sendMail({
                 from: "priyanshumandloigurukul@gmail.com",

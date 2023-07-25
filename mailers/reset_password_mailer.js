@@ -6,7 +6,7 @@ exports.resetPassword = async(user) =>
 {
 try{
     let htmlString = nodemailer.renderTemplate({user: user}, '/comments/password_reset.ejs');
-    console.log('Inside resetPassword Mailer');
+    // console.log('Inside resetPassword Mailer');
     const info = await new Promise((resolve, reject) => {
     nodemailer.transporter.sendMail
     (

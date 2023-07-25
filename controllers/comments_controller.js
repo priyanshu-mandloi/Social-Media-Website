@@ -25,9 +25,9 @@ module.exports.create = async function(req, res) {
         console.log("Error in sending to the queue",err);
         return;
       }
-      console.log("Job enqued",job.id);
+      // console.log("Job enqued",job.id);
     });
-    console.log("Created a content:",comment);
+    // console.log("Created a content:",comment);
    
    if(req.xhr){
       return res.status(200).json({
