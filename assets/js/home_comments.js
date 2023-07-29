@@ -1,5 +1,4 @@
 {
-
     // method used for submitting the form using AJAX.
    let createComment = function(){
        let newCommentForm = $('#new-comment-form');
@@ -42,24 +41,7 @@
    // method to display the post in DOM.
    let newCommentDom = function(comment){
       return $(
-  //   `<li id="comment-${ comment._id }">
-  //   <p>
-  //         <small>
-  //           <a class="delete-comment-button" href="/comments/destroy/${comment._id}">X</a>
-  //         </small>
-  //       ${comment.content}
-  //      <br>
-  //       <small>
-  //         ${comment.user.name}
-  //       </small>
-  //       <br>
-  //       <small>
-  //           <a class="toggle-like-button" data-likes="0" href="/likes/toggle/?id=${comment._id}&type=Comment">
-  //               0 Likes
-  //           </a>
-  //       </small>
-  //    </p>  
-  //  </li>`
+
      `<li id="comment-${ comment._id }">
      <!-- <p> -->
      <div>

@@ -1,6 +1,5 @@
 const nodemailer = require('../config/Nodemailer');
 
-
 // this is another way of exporting a method
 exports.resetPassword = async(user) => 
 {

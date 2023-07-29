@@ -1,11 +1,6 @@
 <li id="comment-<%comment._id%>">
     <!-- <p> -->
     <div class="commments-flow">
-      <!-- <%if(locals.user&&locals.user.id==comment.user.id){%>
-        <small>
-          <a class="delete-comment-button" href="/comments/destroy/<%=comment._id%>"><i class="fa-solid fa-trash"></i></a>
-        </small>
-      <%} %> -->
       <div class="content2">
         <%=comment.content%>
         <small>
@@ -30,6 +25,5 @@
       <%}%>
     </div>
     </div>
-      <!-- Adding like section to the code -->
-    <!-- </p>   -->
+
 </li>

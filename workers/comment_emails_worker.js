@@ -8,5 +8,4 @@ queue.process('emails',function(job,done){
      console.log("Email worker is processing the jobs",job.data);
      commentsMailer.newComment(job.data);
      done();
-    // email(job.data.to,done);
 });

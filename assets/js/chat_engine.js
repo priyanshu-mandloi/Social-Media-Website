@@ -49,10 +49,6 @@ class ChatEngine{
      newmessage.append($('<span>',{
        'html':data.message
      }));  
-    //  newmessage.append($('<span>',{
-    //     'html':data.user_email
-    //  }));
-
      newmessage.addClass(messageType);
      $('#chat-message-list').append(newmessage);
   });

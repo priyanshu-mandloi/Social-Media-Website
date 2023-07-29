@@ -149,11 +149,7 @@ module.exports.resetPassMail = async function(req, res) {
         await user.save();
       }
         
-      reset_Password.resetPassword(user);
-      
-      // const job = await queue.create('user-emails', user).save();
-      // console.log(job);
-         
+      reset_Password.resetPassword(user);         
       req.flash('success', 'Password reset link sent. Please check your mail');
       return res.redirect('/');
     } else {

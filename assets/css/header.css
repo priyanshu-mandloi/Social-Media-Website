@@ -44,11 +44,8 @@
 }
 
 .first{
-    /* display: flex;
-    flex-direction: row; */
     display: flex;
     flex-direction: row;
-    /* align-items: baseline; */
     padding: 3px;
 }
 .search{

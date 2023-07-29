@@ -1,6 +1,5 @@
 // require the passport
 const passport = require('passport');
-
 // Now we need to require the strategy(i.e. passport-local-config.js).
 const LocalStrategy = require('passport-local').Strategy;
 
@@ -63,19 +62,4 @@ passport.setAuthenticatedUser = function(req,res,next){
   next();
 }
 
-
-
 module.exports = passport;
-
-
-
-
-//   done()--> 
-
-         /* `return done(err)` is used to handle errors that occur during the authentication
-            process. It returns the error to the passport middleware, which can then handle it
-            appropriately. The `done` function is a callback function that is passed to the
-            LocalStrategy constructor. It takes two arguments: the first argument is an error
-            object, and the second argument is a user object. If an error occurs during the
-            authentication process, the error object is passed to the `done` function, and the
-            authentication process is terminated. */
