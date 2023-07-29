@@ -3,8 +3,8 @@
    let createPost = function(){
        let newPostForm = $('#new-post-form')
        .sort('-createdAt')
-       .populate('user').
-       populate({
+       .populate('user')
+       .populate({
           path:'comments',
           populate:{
               path:'user'
@@ -117,6 +117,4 @@
    }
    createPost();
 }
-
-
 

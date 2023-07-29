@@ -1,70 +1,115 @@
-.container{
+
+
+ .container{
     position: fixed;
-    bottom: 50px;
-    right: 10px;
-    border: 1px dashed brown;
-    height: 350px;
-    width: 300px;
-    background: white;
+    /* bottom: 50px; */
+    left: 303px;
+    top: 8%;
+    /* border: 1px dashed brown; */
+    height: 94%;
+    width: 81%;
+    background: url(/images/chatbackground.jpg);
     padding: 5px;
     box-shadow: 1px 1px 1px 1px lightgrey;
 
 }
 .chat{
+    height: 88%;
+    background: url(/images/chatbackground.jpg);
+    /* background-color: white; */
+    overflow: auto;
     list-style: none;
     padding: 10px;
-    height: 70%;
-    background-color: white;
-    overflow: auto;
 }
 
-.other-msg {
+/* .other-msg {
     text-align: left;
+    padding: 5px;
+ }
+ .self-msg {
+    text-align: right;
     padding: 5px;
  }
 .other-msg span {
       display: inline-block;
-      padding: 15px;
+      padding: 6px;
       background-color: #ffa0a0; 
+      border-radius: 10px;
     }
-.self-msg {
+/* .self-msg {
     text-align: right;
     padding: 5px;
- }
-   .self-msg span {
-      display: inline-block;
-      padding: 15px;
-      background-color: #a0dcff; 
-    }
+ } */
+   /* .self-msg span {
+    display: inline-block;
+    padding: 6px;
+    background-color: #a0dcff;
+    border-radius: 10px;
+    }  */
+
+
+    .other-msg {
+        text-align: left;
+        padding: 5px;
+     }
+    .other-msg span {
+          display: inline-block;
+          padding: 15px;
+          background-color: #ffa0a0; 
+          border-radius: 10px;
+        }
+    .self-msg {
+        text-align: right;
+        padding: 5px;
+     }
+       .self-msg span {
+          display: inline-block;
+          padding: 15px;
+          background-color: #a0dcff; 
+          border-radius: 10px;
+        }
+
+
+
+
+
+
 
 
 .inputs{
-    height: 24%;
+    height: 10%;
     width: 100%;
     display: flex;
     flex-direction: row;
+    flex-wrap: nowrap;
+    align-content: flex-start;
+    align-items: center;
 }
 .input1{
     height: 62%;
-    width: 70%;
+    width: 100%;
     outline: none;
+    background-color: #3A3B3C;
+    color: lightgray;
+    border-radius: 30px;
+    outline: none;
+    border: none;
+    padding: 17px;
+    margin-left: -5px;
+
 }
 .input1:hover{
     border: 4px solid lightskyblue;
 }
 .input2{
     height: 69%;
-    width: 30%;
-    font-size: 25px;
+    width: 17%;
+    font-size: 20px;
     color: white;
     border: none;
     background: #58d258;
+    margin-right: 9px;
+    border-radius: 10px;
 }
-
-
-
-
-
-
 
 

@@ -1,4 +1,5 @@
 
+
 // Creating a class for the browser side (frontend side)
 class ChatEngine{
   constructor(chatBoxId,userEmail){
@@ -28,7 +29,6 @@ class ChatEngine{
   // Code for pressing an send button
   $('#send-message').click(function(){
       let msg = $('#chat-message-input').val();
-
       if(msg!=''){
         self.socket.emit('send_message',{
             message:msg,
@@ -59,5 +59,3 @@ class ChatEngine{
 
   }
 }
-
-

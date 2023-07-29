@@ -1,0 +1,48 @@
+body{
+    background-color:#F0F2F5 ;
+}
+
+.contain{
+    display: block;
+    background-color: white;
+    height: 21rem;
+    width: 30%;
+    position: relative;
+    top: 60%;
+    left: 60%;
+    box-shadow: 5px 5px 5px 5px lightgray;
+}
+.email{
+    width: 86%;
+    height: 50px;
+    margin-left: 31px;
+    margin-top: 24px;
+}
+.sign{
+    margin-left: 31px;
+    margin-top: 14px;
+    width: 86%;
+}
+
+.forgot{
+    margin-left: 35%;
+    margin-top: 3%;
+}
+
+.line{
+    margin: 10px;
+    border-top: 2px solid lightgray;
+}
+
+.google{
+    margin-left: 5%;
+    font-size: 18px;
+    padding: 16px;
+}
+
+.avlanche{
+    position: relative;
+    left: 18%;
+    top: 10rem;
+    color: blueviolet;
+}

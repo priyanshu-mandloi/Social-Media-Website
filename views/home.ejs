@@ -1,51 +1,60 @@
 <link rel="stylesheet" href="/css/home.css">
-<!-- <h1>Codeial / <%= title %></h1> -->
+
+
+<%if(locals.user){%>
+<section class="sidebar">
+    <%- include('friends.ejs') -%>
+ </section>
+
 <div id="home-container">
-  <section id="feed-post">
-     <h4>Posts</h4>
+  <section id="feed-post" class="posts-style visible">
+     <!-- <h4>Posts</h4> -->
      <%if(locals.user){%>
-    <form action="/posts/create" id="new-post-form" method="POST">
-      <textarea name="content"  cols="30" rows="3" placeholder="Type Here..." required ></textarea>
-      <input type="submit" value="Post" />
-    </form>
+    <div class="form-data">
+      <form action="/posts/create" id="new-post-form" method="POST">
+        <textarea name="content"  cols="80" rows="1" placeholder="Write what you feel like!!" required class="text-post" ></textarea><br>
+        <input type="submit" value="Add Post" class="btn btn-outline-primary post-add"/>
+      </form>
+   </div>
     <%}%>
     <!-- Showing the list of content -->
     <div id="post-list-container">
-      <ul>
+      <ul style="list-style-type: none;">
         <% for(post of posts){ %>
           <%- include('_post') -%>
         <%}%>
       </ul>
     </div>
   </section>
-  
-  <section id="user-friends">
-      <h4>
-          FRIENDS
-      </h4>
-          <%if(locals.friends.length==0){%>
-          <h6>Friends list is empty.</h6>
-          <%}%>
-          <%for(fr of locals.friends){%>
-              <div>
-                     <a href="/users/profile/<%=fr.friend_id%>">
-                      <%=fr.friend_name%>
-                  </a>
-              </div>
-          <%}%>
-
-    <h4>Users</h4>
-     <% for(u of all_users){%>
-        <p>
-           <a href="/users/profile/<%= u.id %>"><%= u.name %></a>
-        </p>  
-      <%}%>
-
-    <% if(locals.user){%>
-      <%- include('_chatBox') -%>
-    <%}%>
-    </section>
+   
+ <div class="chatting" id="chatting-friend"> 
+     <% if(locals.user){%>
+       <%- include('_chatBox') -%>
+     <%}%>
+  </div>
 </div>
+<%}else{%>
+      <div class="head">
+        <img src="/images/Logo.png" alt="" height="50px" width="50px" style="border-radius: 50%;">
+        <h5 style="color: deepskyblue;">Welcome to all new Social Media App</h5>
+        <h1 style="color: blueviolet;">AVLANCHE</h1>
+      </div>
+      <ul class="auth">
+              <li class="user">
+                 <a href="/users/sign-in">
+                    <button type="button" class="btn btn-success" >Sign In</button>
+                  </a>
+                </li>
+              <li class="user">
+                 <a href="/users/sign-up">
+                  <button type="button" class="btn btn-success ">Sign Up</button>
+                 </a>
+              </li>
+   </ul>
+
+<%}%>
+
+
 <script src="/js/home_comments.js"></script>
 <script src="/js/home_posts.js"></script>
 <script src="js/toggle_likes.js"></script>
@@ -61,9 +70,22 @@
 
 <%if(locals.user){%>
   <script>
-      new ChatEngine('user-chat-box','<%= locals.user.emails%>');   
- </script>
+      const showChatButton = document.getElementById("chat-with-friend");
+      const feedPostSection = document.getElementById("feed-post");
+      const homeContainer = document.getElementById("home-container");
+      const chat = document.getElementById('chatting-friend');
+      // const chat1 = document.getElementById('chat-message-input');
+        chat.classList.add('hidden');
+        // chat1.classList.add('hidden');
+      showChatButton.addEventListener("click", () => {
+            feedPostSection.classList.add("hidden");
+            chat.classList.remove('hidden');
+            // chat1.classList.remove('hidden');
+      });
+      new ChatEngine('user-chat-box','<%= locals.user.emails%>');  
+  </script>
 <%}%>
+
 
 
 

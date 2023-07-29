@@ -1,0 +1,44 @@
+<div class="scrollbox">
+  <div class="scrollbox-inner">
+    <div class="cm1">
+      <i class="fa-solid fa-user-group white" id="white1"></i>
+       <h5 style="padding: 2px;">Find Friends</h5>
+    </div>
+    <%if(locals.friends.length==0){%>
+      <div class="cm4"> 
+          <h6>You have no friends..</h6>
+      </div>
+      <%}%>
+      <%for(fr of locals.friends){%>
+          <div class="cm2">
+                 <img src="/images/images.png" alt="" height="50px" width="50px" style="border-radius: 50%;">
+                 <a href="/users/profile/<%=fr.friend_id%>" class="cm3">
+                  <%=fr.friend_name%>
+              </a>
+          </div>
+          <%}%>
+          
+          <div style="border-bottom: 2px solid lightgray; margin: 6px;"></div>
+          
+          <div class="cm1">
+            <i class="fa-solid fa-users"></i>
+            <h5 style="padding: 2px;">Users</h5>
+          </div>
+          <% for(u of all_users){%>
+            <div class="cm2">
+                <img src="/images/images.png" alt="" height="50px" width="50px" style="border-radius: 50%;">
+                <a href="/users/profile/<%= u.id %>" class="cm3"><%= u.name %></a>
+            </div>
+          <%}%>
+
+      <div class="bottom1" >
+        <div class="friendwithchat">
+         <button type="button" class="btn btn-success" id="chat-with-friend">Chat with Friend</button> 
+        </div> 
+         <div class="font-tag">
+            <span>Privacy  · Terms  · Advertising  · Ad choices   · Cookies  </span>
+            <span> PM © 2023</span>
+          </div>
+      </div>
+  </div>
+</div>

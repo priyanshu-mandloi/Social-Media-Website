@@ -26,7 +26,7 @@ class ToggleLike{
                     likesCount += 1;
                 }
                 $(self).attr('data-likes', likesCount);
-                $(self).html(`${likesCount} Likes`);
+                $(self).html(`<i class="fa-regular fa-thumbs-up"></i> ${likesCount}`);
             })
             .fail(function(errData) {
                 console.log('error in completing the request');

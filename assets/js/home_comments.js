@@ -42,24 +42,42 @@
    // method to display the post in DOM.
    let newCommentDom = function(comment){
       return $(
-    `<li id="comment-${ comment._id }">
-    <p>
-          <small>
-            <a class="delete-comment-button" href="/comments/destroy/${comment._id}">X</a>
-          </small>
-        ${comment.content}
-       <br>
-        <small>
-          ${comment.user.name}
-        </small>
-        <br>
-        <small>
-            <a class="toggle-like-button" data-likes="0" href="/likes/toggle/?id=${comment._id}&type=Comment">
-                0 Likes
-            </a>
-        </small>
-     </p>  
-   </li>`
+  //   `<li id="comment-${ comment._id }">
+  //   <p>
+  //         <small>
+  //           <a class="delete-comment-button" href="/comments/destroy/${comment._id}">X</a>
+  //         </small>
+  //       ${comment.content}
+  //      <br>
+  //       <small>
+  //         ${comment.user.name}
+  //       </small>
+  //       <br>
+  //       <small>
+  //           <a class="toggle-like-button" data-likes="0" href="/likes/toggle/?id=${comment._id}&type=Comment">
+  //               0 Likes
+  //           </a>
+  //       </small>
+  //    </p>  
+  //  </li>`
+     `<li id="comment-${ comment._id }">
+     <!-- <p> -->
+     <div>
+       ${comment.content}
+       <small>
+        ${comment.user.name}
+       </small>
+   
+       <small>
+               <a class="toggle-like-button" data-likes="${comment.likes.length}" href="/likes/toggle/?id=${comment._id}&type=Comment" style="text-decoration: none;">
+                 <i class="fa-regular fa-thumbs-up"></i> ${comment.likes.length}
+               </a>
+       </small>
+       <small>
+         <a class="delete-comment-button" href="/comments/destroy/${comment._id}"><i class="fa-solid fa-trash"></i></a>
+       </small>
+     </div>
+ </li>`
     );
    }
 

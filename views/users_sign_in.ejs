@@ -1,11 +1,26 @@
-<h1>Sign in</h1>
+<link rel="stylesheet" href="/css/user_signin.css">
 
+<div class="avlanche">
+    <h1>AVLANCHE</h1>
+</div>
+
+
+<div class="contain">
 <form action=" /users/create-session" method="POST">
-    <input type="email" name="emails" placeholder="Email" required>
-    <input type="password" name="password" placeholder="Password" required>
-     <input type="submit" value="Sign In">
+    <input type="email" name="emails" placeholder="Email" required class="email">
+    <input type="password" name="password" placeholder="Password" required class="email">
+     <input type="submit" value="Sign In" class="btn btn-primary btn-lg sign">
 </form>
-
-<p>
-    <a href="/users/auth/google"> Google Sign In/Sign Up</a>  | <a href="/users/reset-password">Forgot Password?</a>
-</p>
+   
+    <div class="forgot">
+        <a href="/users/reset-password" style="text-decoration: none;">Forgot Password?</a>
+    </div>
+     
+      <div class="line"></div>
+    <div class="google">
+      <a href="/users/auth/google" style="text-decoration: none;"> 
+        <img src="/images/googlelogo.jpg" alt="" height="20px" width="20px" style="border-radius: 50%;">
+        Sign In with google
+    </a>
+    </div>
+</div>
