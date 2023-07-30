@@ -75,11 +75,6 @@
            <input type="submit" value="Add Comment">
        </form>
        <!-- Showing the comments  -->
-       <div class="post-comments-list">
-        <ul id="post-comments-${post._id}">
-
-        </ul>
-       </div>
       </div>
     </li>`
     );
