@@ -15,7 +15,8 @@
 .log {
     display: flex;
     list-style-type: none;
-    align-items: center;
+    /* align-items: center; */
+    align-items: flex-end;;
     padding-right: 30px;
 }
 

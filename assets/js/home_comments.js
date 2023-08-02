@@ -43,13 +43,8 @@
       return $(
 
      `<li id="comment-${ comment._id }">
-     <!-- <p> -->
      <div>
        ${comment.content}
-       <small>
-        ${comment.user.name}
-       </small>
-   
        <small>
                <a class="toggle-like-button" data-likes="${comment.likes.length}" href="/likes/toggle/?id=${comment._id}&type=Comment" style="text-decoration: none;">
                  <i class="fa-regular fa-thumbs-up"></i> ${comment.likes.length}

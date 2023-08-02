@@ -42,10 +42,14 @@
                  layout:'topRight',
                  timeout:1500
                }).show();
-            }    
-        });
-       });
-   }
+            }
+          });
+      });
+  
+               //           }    
+  //       });
+  //      });
+  //  }
 
 
    // method to display the post in DOM.
@@ -112,4 +116,4 @@
    }
    createPost();
 }
-
+}
