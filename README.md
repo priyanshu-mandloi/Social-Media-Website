@@ -67,3 +67,6 @@ To run Avalanche on your local machine, follow these steps:
 
    ```bash
    npm install
+
+
+Enjoy using Avalanche - the dynamic social media web application! 😊
