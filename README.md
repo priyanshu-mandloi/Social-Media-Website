@@ -1,13 +1,13 @@
 # Avalanche - A Social Media Web Application with CRUD Operations
 
 ![download](https://github.com/priyanshu-mandloi/Social-Media-Website/assets/99532489/56188139-5a41-44c8-a62d-60546c2206a2)
-37a5edc369b8)
-![download](https://github.com/priyanshu-mandloi/Social-Media-Website/assets/99532489/307a06ee-47a4-44dd-a592-3bac12158a58)
+![download](https://github.com/priyanshu-mandloi/Social-Media-Website/assets/99532489/f805658d-b2c9-454f-977f-52ce7b4a9e43)
 ![download](https://github.com/priyanshu-mandloi/Social-Media-Website/assets/99532489/0a5d9e53-cb21-41a5-81d9-8811f9f48a93)
 ![download](https://github.com/priyanshu-mandloi/Social-Media-Website/assets/99532489/965c0d3e-1c93-48ca-8e6c-5e1a94c3906a)
 ![download](https://github.com/priyanshu-mandloi/Social-Media-Website/assets/99532489/e9fa3b4e-57bd-4480-8e47-03edc8a7a774)
 ![download](https://github.com/priyanshu-mandloi/Social-Media-Website/assets/99532489/1ab401d6-4c91-40e9-807c-d2d64edcf211)
 ![download](https://github.com/priyanshu-mandloi/Social-Media-Website/assets/99532489/a9a392c0-cf16-4d18-a3a3-1bfdc7f92409)
+![download](https://github.com/priyanshu-mandloi/Social-Media-Website/assets/99532489/307a06ee-47a4-44dd-a592-3bac12158a58)
 
 ## Home Page
 ![Screenshot 2023-09-09 151218](https://github.com/priyanshu-mandloi/Social-Media-Website/assets/99532489/d956d714-fe0a-4abe-b891-0eda4fcdc474)
