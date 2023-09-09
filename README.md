@@ -7,7 +7,10 @@
 ![download](https://github.com/priyanshu-mandloi/Social-Media-Website/assets/99532489/e9fa3b4e-57bd-4480-8e47-03edc8a7a774)
 ![download](https://github.com/priyanshu-mandloi/Social-Media-Website/assets/99532489/1ab401d6-4c91-40e9-807c-d2d64edcf211)
 ![download](https://github.com/priyanshu-mandloi/Social-Media-Website/assets/99532489/a9a392c0-cf16-4d18-a3a3-1bfdc7f92409)
-![download](https://github.com/priyanshu-mandloi/Social-Media-Website/assets/99532489/307a06ee-47a4-44dd-a592-3bac12158a58)
+![downl
+![download](https://github.com/priyanshu-mandloi/Social-Media-Website/assets/99532489/aee78fa2-2997-4172-9bfa-0fbb307f1b89)
+oad](https://github.com/priyanshu-mandloi/Social-Media-Website/assets/99532489/307a06ee-47a4-44dd-a592-3bac12158a58)
+
 
 ## Home Page
 ![Screenshot 2023-09-09 151218](https://github.com/priyanshu-mandloi/Social-Media-Website/assets/99532489/d956d714-fe0a-4abe-b891-0eda4fcdc474)
