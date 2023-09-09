@@ -1,2 +1,57 @@
-# Social-Media-Website
-This is an social media website.
+# Avlanche
+A Social media Web Application with CRUD operations
+
+For Testing :
+Email : test@gmail.com
+Password: 123
+
+Features
+Authentication:
+One cannot manage posts and view user profile without being authenticated
+One cannot edit or delete posts and comments created by other users
+Manage User with basic functionalities:
+Create and delete posts and comments
+Upload User avatar
+Edit user name and email
+Add/Remove friends
+One can like posts and comments on the feed
+Users can chat with their Friends using chatting Engine
+
+API:
+v1 API is made for adding and deleting the post
+Flash Messages:
+Flash Messages pop up on sign-in / sign-out
+Adding/Deleting Posts,Comments
+Mailer:
+User gets mail on the specified email id upon commenting
+
+All the functionalities are added dynamically using AJAX so that the page does not reload upon every request
+Clone or download this repository:
+Install dependencies
+npm install
+https://camo.githubusercontent.com/38b300bfc65869eab195f78dc56dd08b16627a522b7261fa9a68e5d79000e689/68747470733a2f2f6d69726f2e6d656469756d2e636f6d2f6d61782f3830302f302a67336e733851414c4e424248374342412e
+https://github.com/saumya-mendiratta/Codeial#a-social-media-web-application-with-crud-operations:~:text=and%20Packages%20used-,Front%2DEnd,-HTML%2C%20CSS%2C%20JavaScript
+https://camo.githubusercontent.com/b3c60985de9c613b233acb4d5c3b620bbaec04d217c03b600b18e870712b53c3/68747470733a2f2f75706c6f61642e77696b696d656469612e6f72672f77696b6970656469612f636f6d6d6f6e732f642f64392f4e6f64652e6a735f6c6f676f2e737667
+https://camo.githubusercontent.com/a1f610da6e1ed9fdd9f97821166219cb9d3b16aea90f07c870e5f15fc2980744/68747470733a2f2f63646e2e69636f6e73636f75742e636f6d2f69636f6e2f667265652f706e672d3531322f6d6f6e676f64622d3232363032392e706e67
+https://camo.githubusercontent.com/d7c7db5cd2798f8021e89e6697e84ad73c814e33f5760b1f0260dd66df9f54fb/68747470733a2f2f7472616e73616e672e6d652f636f6e74656e742f696d616765732f323031392f31312f457870726573734a532e706e67
+https://camo.githubusercontent.com/b81599775ac71d64792253974b2cf89cabd00faf37e5b3e7cb0cedc9138987f9/68747470733a2f2f766567696269742e636f6d2f77702d636f6e74656e742f75706c6f6164732f323031382f30372f4a534f4e2d5765622d546f6b656e2d41757468656e7469636174696f6e2d576974682d4e6f64652e706e67
+https://camo.githubusercontent.com/aaa270df327dab52ac36b161122cea2ecb1ab4e92936dbccc2e0491f04b35c68/68747470733a2f2f69312e77702e636f6d2f636f6d6d756e6974792e6e6f64656d61696c65722e636f6d2f77702d636f6e74656e742f75706c6f6164732f323031352f31302f6e322d322e706e673f6669743d3432322532433336302673736c3d31
+https://camo.githubusercontent.com/de627a44854be1c5a8a80dbb3321ad9bcaf0b4c662919838af77b7c1df6f60a7/68747470733a2f2f6d69726f2e6d656469756d2e636f6d2f6d61782f3430302f312a5949317474346b477a7665612d76346441685a3930772e706e67
+Front-End
+HTML, CSS, JavaScript, jQuery
+Bootstrap & Tailwind
+ejs
+Back-End
+node.js
+express
+mongoDB
+mongoose
+passport
+passport-local
+express-session
+JWT (JsonWebToken)
+Noty JS
+Node Mailer
+Postman
+Gulp
+Socket.io
