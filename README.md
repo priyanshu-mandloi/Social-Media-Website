@@ -74,7 +74,7 @@ Avalanche is built using a variety of technologies and packages:
 
 To run Avalanche on your local machine, follow these steps:
 
-1. **Clone or download this repository**: [Clone or Download](https://github.com/priyanshu-mandloi/Social-Media-Website.git)
+1. **Clone or download this repository**: (https://github.com/priyanshu-mandloi/Social-Media-Website.git)
 
 2. Install the required dependencies:
 
