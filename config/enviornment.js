@@ -32,8 +32,8 @@ const devlopment ={
      morgan:{
         mode:'dev',
         options:{stream:accessLogStream},
-     }
-     
+     },
+     PORT:"5000", 
 }
 const production = {
     name:'production',
