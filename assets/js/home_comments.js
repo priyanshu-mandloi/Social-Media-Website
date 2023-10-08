@@ -41,10 +41,9 @@
    // method to display the post in DOM.
    let newCommentDom = function(comment){
       return $(
-
      `<li id="comment-${ comment._id }">
-     <div>
-       ${comment.content}
+     <div class="content2">
+     ${comment.content}
        <small>
                <a class="toggle-like-button" data-likes="${comment.likes.length}" href="/likes/toggle/?id=${comment._id}&type=Comment" style="text-decoration: none;">
                  <i class="fa-regular fa-thumbs-up"></i> ${comment.likes.length}

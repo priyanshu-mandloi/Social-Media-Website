@@ -15,7 +15,6 @@
 .log {
     display: flex;
     list-style-type: none;
-    /* align-items: center; */
     align-items: flex-end;;
     padding-right: 30px;
 }
@@ -62,6 +61,8 @@
     padding-right: 4rem;
     font-style: normal;
     font-size: 10px;
+    text-transform: none;
+    /* font-family: Arial ,sans-serif; */
 }
 
 .center{
