@@ -2,7 +2,7 @@ const express = require("express");
 const enviornment = require('./config/enviornment');
 const logger = require('morgan'); 
 const cookieParser = require('cookie-parser');
-const port =  8000;
+const port =  process.env.port||8000;
 const flash = require('connect-flash');
 const app = express();
 // require('./config/view-he lper')(app);
