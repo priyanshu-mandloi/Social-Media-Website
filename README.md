@@ -80,9 +80,8 @@ To run Avalanche on your local machine, follow these steps:
 
    ```bash
    npm install
-3. Access the application in your web browser at
-  ```bash
-[Avalanche Repository](https://github.com/priyanshu-mandloi/Social-Media-Website.git).
+3. Access the application in your web browser at [Avalanche](https://avalanches.onrender.com).
+
 
 
 Enjoy using Avalanche - the dynamic social media web application! 😊
