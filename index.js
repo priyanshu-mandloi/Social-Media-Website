@@ -17,6 +17,7 @@ const passportLocal = require('./config/passport-local-config');
 const passportJWT = require('./config/passport-jwt-strategy');
 const passportGoogle = require('./config/passport-google-oauth2-strategy');
 const customMware = require('./config/Middleware');
+const mongoose = require("mongoose");
 const  MongoStore = require('connect-mongo');
 const { env } = require("process");
 // Setting up for the web sockets
@@ -41,11 +42,11 @@ app.set('view engine','ejs');
 app.set('views','./views');
 
 // mongo cookie is used to store the session cookie in the db
-const sessionStore = new MongoStore({
- mongoUrl: process.env.DB_URL,
-// mongoUrl: 'mongodb://127.0.0.1:27017/codeial_db',
- autoRemove: 'disabled',
-});
+// const sessionStore = new MongoStore({
+//  mongoUrl: process.env.DB_URL,
+// // mongoUrl: 'mongodb://127.0.0.1:27017/codeial_db',
+//  autoRemove: 'disabled',
+// });
 app.use(session({
     name:"codeial",
     // Todo to change the deployment before in production mode.
@@ -55,13 +56,34 @@ app.use(session({
     cookie:{
       maxAge:(1000*60*100)
     },
-    store:sessionStore,
+    // store:sessionStore,
         
     function(err){
       console.log(err|| 'connect-mongodb setup ok');
     }
   })
 );
+
+
+function dbConnect(){
+mongoose.connect( process.env.DB_URL , {
+  useNewUrlParser:true,
+  useUnifiedTopology:true,
+  connectTimeoutMS: 10000,
+} )
+
+.then( console.log("DB connected successfully") )
+
+.catch((error)=>{ console.log("Error in connecting to DB")
+            console.log(error)
+            // process. Exit(1)
+           })
+
+}
+
+dbConnect();
+
+console.log(process.env.DB_URL);
  
  // To tell that we are using the passport
  app.use(passport.initialize());
