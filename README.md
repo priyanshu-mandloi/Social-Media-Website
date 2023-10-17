@@ -82,7 +82,7 @@ To run Avalanche on your local machine, follow these steps:
    npm install
 3. Access the application in your web browser at
   ```bash
-  http://localhost:8000.
+ [Avlanche](https://avalanches.onrender.com).
 
 
 Enjoy using Avalanche - the dynamic social media web application! 😊
