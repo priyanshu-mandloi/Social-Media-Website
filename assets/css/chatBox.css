@@ -79,3 +79,26 @@
     margin-right: 9px;
     border-radius: 10px;
 }
+
+@media (max-width: 480px) {
+    .container {
+        margin-left: -73%;
+        width: 100%;
+    }
+
+    .input1 {
+        font-size: 27px;
+        width: 78%;
+    }
+
+    .input2 {
+        width: 100px;
+        margin-left: 12px;
+    }
+
+    .header1 {
+        margin-top: 0px;
+        margin-left: -53%;
+        padding-left: 6px;
+    }
+}

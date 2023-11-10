@@ -1,8 +1,8 @@
-body{
-    background-color:#F0F2F5 ;
+body {
+    background-color: #F0F2F5;
 }
 
-.contain{
+.contain {
     display: block;
     background-color: white;
     height: 21rem;
@@ -12,37 +12,54 @@ body{
     left: 60%;
     box-shadow: 5px 5px 5px 5px lightgray;
 }
-.email{
+
+.email {
     width: 86%;
     height: 50px;
     margin-left: 31px;
     margin-top: 24px;
 }
-.sign{
+
+.sign {
     margin-left: 31px;
     margin-top: 14px;
     width: 86%;
 }
 
-.forgot{
+.forgot {
     margin-left: 35%;
     margin-top: 3%;
 }
 
-.line{
+.line {
     margin: 10px;
     border-top: 2px solid lightgray;
 }
 
-.google{
+.google {
     margin-left: 5%;
     font-size: 18px;
     padding: 16px;
 }
 
-.avlanche{
+.avlanche {
     position: relative;
     left: 18%;
     top: 10rem;
     color: blueviolet;
+}
+
+@media (max-width: 450px) {
+    .contain {
+        width: 98%;
+        top: 50%;
+        left: 50%;
+        margin-top: 80%;
+        transform: translate(-50%, -50%);
+        height: auto;
+    }
+
+    .avlanche {
+        top: 2rem;
+    }
 }

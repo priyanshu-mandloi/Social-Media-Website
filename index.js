@@ -83,7 +83,6 @@ mongoose.connect( process.env.DB_URL , {
 
 dbConnect();
 
-console.log(process.env.DB_URL);
  
  // To tell that we are using the passport
  app.use(passport.initialize());
@@ -109,94 +108,3 @@ app.listen(port,function(err){
 
 
 
-
-// const express = require('express');
-// const environment = require('./config/enviornment');
-// const logger = require('morgan');
-// const cookieParser = require('cookie-parser');
-// const port = process.env.PORT || 8000;
-// require('dotenv').config();
-// console.log(process.env.PORT);
-// const flash = require('connect-flash');
-// const app = express();
-// var expressLayouts = require('express-ejs-layouts');
-// const session = require('express-session');
-// const passport = require('passport');
-// const passportLocal = require('./config/passport-local-config');
-// const passportJWT = require('./config/passport-jwt-strategy');
-// const passportGoogle = require('./config/passport-google-oauth2-strategy');
-// const customMware = require('./config/Middleware');
-// const { ServerApiVersion } = require('mongodb'); // Import ServerApiVersion
-// const { MongoClient } = require('mongodb'); // Import MongoClient
-// const chatServer = require('http').createServer(app);
-// const MongoStore = require('connect-mongo');
-// const chatSockets = require('./config/chats_socket').chatSockets(chatServer);
-
-// chatServer.listen(5000);
-// console.log('Chat server is listening on port: 5000');
-
-// app.use(express.urlencoded({ extended: true }));
-// app.use(cookieParser());
-// app.use(express.static('./assets'));
-// app.use('/uploads', express.static(__dirname + '/uploads'));
-// app.use(logger(environment.morgan.mode, environment.morgan.options));
-// app.use(expressLayouts);
-// app.set('layout extractStyles', true);
-// app.set('layout extractScripts', true);
-// app.set('view engine', 'ejs');
-// app.set('views', './views');
-// const uri = process.env.DB_URL;
-// const client = new MongoClient(uri, {
-//   serverApi: {
-//     version: ServerApiVersion.v1,
-//     strict: true,
-//     deprecationErrors: true,
-//   },
-//   useUnifiedTopology: true, 
-// });
-
-// async function run() {
-//   try {
-//     await client.connect();
-//     await client.db('admin').command({ ping: 1 });
-//     console.log('Pinged your deployment. You successfully connected to MongoDB!');
-
-//     // Now that the connection is established, create the sessionStore
-//     const sessionStore = new MongoStore({
-//       client: client, // Pass the MongoClient instance
-//       dbName: 'Avlanche', // Replace with your actual database name
-//       autoRemove: 'disabled',
-//     });
-
-//     app.use(
-//       session({
-//         name: 'codeial',
-//         secret: environment.session_cookie_key,
-//         saveUninitialized: false,
-//         resave: false,
-//         cookie: {
-//           maxAge: 1000 * 60 * 100,
-//         },
-//         store: sessionStore,
-//       })
-//     );
-
-//     app.use(passport.initialize());
-//     app.use(passport.session());
-//     app.use(passport.setAuthenticatedUser);
-//     app.use(flash());
-//     app.use(customMware.setFlash);
-//     app.use('/', require('./routes'));
-    
-//     app.listen(port, function (err) {
-//       if (err) {
-//         console.log(`Error in running the server: ${err}`);
-//       }
-//       console.log(`Server is running on the port: ${port}`);
-//     });
-//   } finally {
-//     await client.close();
-//   }
-// }
-
-// run().catch(console.dir);

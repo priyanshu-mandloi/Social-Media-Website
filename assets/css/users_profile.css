@@ -1,65 +1,66 @@
-body{
-    padding: 0px;
-    margin: 0px;
+body {
+    padding: 0;
+    margin: 0;
     background-color: black;
 }
-form{
-    margin: 0;
-    padding: 0;
-}
 
-.cm6{
-    position: fixed;
+.cm6 {
+    position: absolute;
     top: 18%;
-    left: 36%;
-    width: 500px;
+    left: 50%;
+    transform: translateX(-50%);
+    max-width: 90%;
     background-color: #242526;
-    height: 540px;
     border-radius: 31px;
     color: white;
+    padding: 10px;
+    box-shadow: 5px 5px 5px 5px lightgray;
 }
 
-.cm7{
+.cm7 {
     border-radius: 50%;
     height: 200px;
     width: 200px;
     border: 2px solid gray;
-    margin: 10px 10px 0px 144px;
-}
-.cm8{
-    margin-left: 55%;
+    margin: 10px auto;
 }
 
-.cm11{
+.cm8 {
+    text-align: center;
+}
+
+.cm11 {
     border-radius: 5px;
 }
 
-.cm12{
+.cm12 {
     display: flex;
     flex-direction: column;
+    text-align: center;
 }
-.cm13{
+
+.cm13 {
     border-radius: 17px;
     height: 50px;
-    width: 80%;
-    margin-top: 6%;
-    margin-left: 11%;
+    width: 90%;
+    margin: 6% auto;
     color: black;
     padding: 5px;
 }
-.cm15{
+
+.cm15 {
     margin-top: 5%;
+    text-align: center;
 }
 
-.cm17{
+.cm17 {
     display: flex;
     flex-direction: column;
-    flex-wrap: nowrap;
     align-items: center;
-    padding: 30px;
+    padding: 10px;
 }
 
-.cm16{
+.cm16 {
     padding: 4px;
     background-color: orange;
     margin-top: 7px;
@@ -68,11 +69,32 @@ form{
     padding: 6px;
     color: darkmagenta;
     font-weight: bold;
+    text-align: center;
 }
 
-.cm18{
-    margin-top: 30px;
+.cm18 {
+    margin-top: 20px;
     background-color: brown;
     border-radius: 16px;
     padding: 10px;
+    text-align: center;
+}
+
+/* Media query for screens 450px and smaller */
+@media (max-width: 450px) {
+    .cm6 {
+        position: absolute;
+        top: 29%;
+        left: 145%;
+    }
+
+    .cm16 {
+        background-color: orange;
+        margin-top: 7px;
+        border-radius: 8px;
+        width: 244px;
+        padding: 1px;
+        font-size: 12px;
+        color: darkmagenta;
+    }
 }

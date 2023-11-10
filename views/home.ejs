@@ -1,97 +1,86 @@
 <link rel="stylesheet" href="/css/home.css">
 <%if(locals.user){%>
-<section class="sidebar">
+  <section class="sidebar">
     <%- include('friends.ejs') -%>
- </section>
-
-<div id="home-container">
-  <section id="feed-post" class="posts-style visible">
-     <!-- <h4>Posts</h4> -->
-     <%if(locals.user){%>
-    <div class="form-data">
-      <form action="/posts/create" id="new-post-form" method="POST">
-        <textarea name="content"  cols="80" rows="1" placeholder="Write what you feel like!!" required class="text-post" ></textarea><br>
-        <input type="submit" value="Add Post" class="btn btn-outline-primary post-add"/>
-      </form>
-   </div>
-    <%}%>
-    <!-- Showing the list of content -->
-    <div id="post-list-container">
-      <ul style="list-style-type: none;">
-        <% for(post of posts){ %>
-          <%- include('_post') -%>
-        <%}%>
-      </ul>
-    </div>
   </section>
-   
- <div class="chatting" id="chatting-friend"> 
-     <% if(locals.user){%>
-       <%- include('_chatBox') -%>
-     <%}%>
+
+  <div id="home-container">
+    <section id="feed-post" class="posts-style visible">
+      <!-- <h4>Posts</h4> -->
+      <%if(locals.user){%>
+        <div class="form-data">
+          <form action="/posts/create" id="new-post-form" method="POST">
+            <textarea name="content" cols="80" rows="1" placeholder="Write what you feel like!!" required
+              class="text-post"></textarea><br>
+            <input type="submit" value="Add Post" class="btn btn-outline-primary post-add" />
+          </form>
+        </div>
+        <%}%>
+          <!-- Showing the list of content -->
+          <div id="post-list-container">
+            <ul style="list-style-type: none;">
+              <% for(post of posts){ %>
+                <%- include('_post') -%>
+                  <%}%>
+            </ul>
+          </div>
+    </section>
+
+    <div class="chatting" id="chatting-friend">
+      <% if(locals.user){%>
+        <%- include('_chatBox') -%>
+          <%}%>
+    </div>
   </div>
-</div>
-<%}else{%>
-      <div class="head">
-        <img src="/images/Logo.png" alt="" height="50px" width="50px" style="border-radius: 50%;">
-        <h5 style="color: deepskyblue;">Welcome to all new Social Media App</h5>
-        <h1 style="color: blueviolet;">AVLANCHE</h1>
-      </div>
-      <ul class="auth">
-              <li class="user">
-                 <a href="/users/sign-in">
-                    <button type="button" class="btn btn-success" >Sign In</button>
-                  </a>
-                </li>
-              <li class="user">
-                 <a href="/users/sign-up">
-                  <button type="button" class="btn btn-success ">Sign Up</button>
-                 </a>
-              </li>
-   </ul>
-<%}%>
+  <%}else{%>
+    <div class="head">
+      <img src="/images/Logo.png" alt="" height="50px" width="50px" style="border-radius: 50%;">
+      <h5 style="color: deepskyblue;">Welcome to all new Social Media App</h5>
+      <h1 style="color: blueviolet;">AVLANCHE</h1>
+    </div>
+    <ul class="auth">
+      <li class="user">
+        <a href="/users/sign-in">
+          <button type="button" class="btn btn-success">Sign In</button>
+        </a>
+      </li>
+      <li class="user">
+        <a href="/users/sign-up">
+          <button type="button" class="btn btn-success ">Sign Up</button>
+        </a>
+      </li>
+    </ul>
 
-<script src="/js/home_comments.js"></script>
-<script src="/js/home_posts.js"></script>
-<script src="js/toggle_likes.js"></script>
-<script>
-    $('.toggle-like-button').each(function(){
-        let self = this;
-        let toggleLike = new ToggleLike(self);
-    });
-</script>
-<!-- Added a cdn link for the frontend for the websockets -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.7.1/socket.io.js"></script>
-<script src="/js/chat_engine.js"></script>
+    <%}%>
 
-<%if(locals.user){%>
-  <script>
-      const showChatButton = document.getElementById("chat-with-friend");
-      const feedPostSection = document.getElementById("feed-post");
-      const homeContainer = document.getElementById("home-container");
-      const chat = document.getElementById('chatting-friend');
-      // const chat1 = document.getElementById('chat-message-input');
-        chat.classList.add('hidden');
-        // chat1.classList.add('hidden');
-      showChatButton.addEventListener("click", () => {
+
+      <script src="/js/home_comments.js"></script>
+      <script src="/js/home_posts.js"></script>
+      <script src="js/toggle_likes.js"></script>
+      <script>
+        $('.toggle-like-button').each(function () {
+          let self = this;
+          let toggleLike = new ToggleLike(self);
+        });
+      </script>
+      <!-- Added a cdn link for the frontend for the websockets -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.7.1/socket.io.js"></script>
+      <script src="/js/chat_engine.js"></script>
+
+      <%if(locals.user){%>
+        <script>
+          const showChatButton = document.getElementById("chat-with-friend");
+          const feedPostSection = document.getElementById("feed-post");
+          const homeContainer = document.getElementById("home-container");
+          const chat = document.getElementById('chatting-friend');
+          // const chat1 = document.getElementById('chat-message-input');
+          chat.classList.add('hidden');
+          // chat1.classList.add('hidden');
+          showChatButton.addEventListener("click", () => {
             feedPostSection.classList.add("hidden");
             chat.classList.remove('hidden');
             // chat1.classList.remove('hidden');
-      });
-      new ChatEngine('user-chat-box','<%= locals.user.emails%>');  
-  </script>
-<%}%>
-
-
-
-
-
- 
-
-
-
-
-
-
-
-
+          });
+          new ChatEngine('user-chat-box', '<%= locals.user.emails%>');  
+        </script>
+        <%}%>

@@ -1,48 +1,76 @@
-body{
-    background-color:#F0F2F5 ;
+body {
+    background-color: #F0F2F5;
 }
 
-.contain{
+.contain {
     display: block;
     background-color: white;
-    height: 31rem;
+    height: 34rem;
     width: 30%;
     position: relative;
     top: 60%;
     left: 60%;
     box-shadow: 5px 5px 5px 5px lightgray;
 }
-.email{
+
+.email {
     width: 86%;
     height: 50px;
     margin-left: 31px;
     margin-top: 24px;
 }
-.sign{
+
+.sign {
     margin-left: 31px;
     margin-top: 14px;
     width: 86%;
 }
 
-.forgot{
+.forgot {
     margin-left: 35%;
     margin-top: 3%;
 }
 
-.line{
+.line {
     margin: 10px;
     border-top: 2px solid lightgray;
 }
 
-.google{
+.google {
     margin-left: 5%;
     font-size: 18px;
     padding: 16px;
 }
 
-.avlanche{
+.avlanche {
     position: relative;
     left: 18%;
     top: 10rem;
     color: blueviolet;
+}
+
+.usr {
+    padding: 7px;
+    margin-top: -7px;
+    margin-left: 34px;
+}
+
+@media (max-width: 450px) {
+    .contain {
+        width: 97%;
+        top: 52%;
+        margin-top: 106%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        height: auto;
+    }
+
+    .avlanche {
+        top: 2rem;
+    }
+
+    .usr {
+        margin-left: 29px;
+        padding: 9px;
+    }
 }
