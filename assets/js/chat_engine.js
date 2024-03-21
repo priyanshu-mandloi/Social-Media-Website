@@ -5,7 +5,7 @@ class ChatEngine{
   constructor(chatBoxId,userEmail){
      this.chatBoxId=$(`#${chatBoxId}`); 
      this.userEmail = userEmail;
-     this.socket = io.connect('http://localhost:5000',{
+     this.socket = io.connect('https://avlanche.onrender.com',{
        transports : ['websocket'] 
       });
      if(this.userEmail){

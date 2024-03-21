@@ -26,6 +26,7 @@ const chatSockets = require('./config/chats_socket').chatSockets(chatServer);
 chatServer.listen(5000);
 console.log("Chat server is listening on port: 5000");
 
+
 app.use(express.urlencoded({ extended: true })); 
 app.use(cookieParser());
 app.use(express.static('./assets')); 
@@ -75,7 +76,7 @@ mongoose.connect( process.env.DB_URL , {
 .then( console.log("DB connected successfully") )
 
 .catch((error)=>{ console.log("Error in connecting to DB")
-            console.log(error)
+            // console.log(error)
             // process. Exit(1)
            })
 
