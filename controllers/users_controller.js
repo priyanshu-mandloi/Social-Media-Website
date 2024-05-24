@@ -6,6 +6,10 @@ const queue = require('../config/Kue');
 const Friendship = require('../models/friendship');
 const reset_Password = require("../mailers/reset_password_mailer");
 const userEmailWorker = require('../workers/user_email_worker');
+
+// const User = require('../models/users');
+const cloudinary = require('cloudinary').v2;
+
 module.exports.profile= async function(req,res){
   try{
      const user =  await User.findById(req.params.id);
@@ -35,38 +39,92 @@ module.exports.profile= async function(req,res){
 
 
 // Creating an action for the updation of the users profile
-module.exports.update = async function(req,res){
-  if(req.user.id == req.params.id){
-      try{
-        let user = await User.findById(req.params.id);
-        User.uploadedAvatar(req,res,function(err){
-          if(err){console.log("*****Multer Error: ",err)}
+// module.exports.update = async function(req,res){
+//   if(req.user.id == req.params.id){
+//       try{
+//         let user = await User.findById(req.params.id);
+//         User.uploadedAvatar(req,res,function(err){
+//           if(err){console.log("*****Multer Error: ",err)}
           
-          user.name = req.body.name;
-          user.emails = req.body.emails;
+//           user.name = req.body.name;
+//           user.emails = req.body.emails;
           
-          if(req.file){
+//           if(req.file){
            
-             // For deleting the modules we will require the file system and path
-             if(user.avatar){
-              fs.unlinkSync(path.join(__dirname,'..',user.avatar));
-             }
+//              // For deleting the modules we will require the file system and path
+//              if(user.avatar){
+//               fs.unlinkSync(path.join(__dirname,'..',user.avatar));
+//              }
 
-            // Saving the path of the uploaded file into the avatar filed in the user.
-            user.avatar = User.avatarPath + '/' + req.file.filename;
-          }
-          user.save();
-          return res.redirect('back');
-        });
-      }catch(err){
-        req.flash('error',err);
-        return res.redirect('back');
-      }
-    }else{
-    req.flash('error', 'Unauthorized!');
-    return res.status(401).send('Unauthorized'); 
-  }
-}
+//             // Saving the path of the uploaded file into the avatar filed in the user.
+//             user.avatar = User.avatarPath + '/' + req.file.filename;
+//           }
+//           user.save();
+//           return res.redirect('back');
+//         });
+//       }catch(err){
+//         req.flash('error',err);
+//         return res.redirect('back');
+//       }
+//     }else{
+//     req.flash('error', 'Unauthorized!');
+//     return res.status(401).send('Unauthorized'); 
+//   }
+// }
+
+
+
+
+
+module.exports.update = async function(req, res) {
+    if (req.user.id == req.params.id) {
+        try {
+            let user = await User.findById(req.params.id);
+            User.uploadedAvatar(req, res, async function(err) {
+                if (err) {
+                    console.log("*****Multer Error: ", err);
+                    req.flash('error', 'Error uploading file');
+                    return res.redirect('back');
+                }
+
+                user.name = req.body.name;
+                user.email = req.body.email; // Ensure `email` is used here
+
+                if (req.file) {
+                    // If a new file is uploaded, remove the old avatar from Cloudinary if it exists
+                    if (user.avatar) {
+                        const publicId = user.avatar.split('/').pop().split('.')[0];
+                        cloudinary.uploader.destroy(publicId, function(error, result) {
+                            if (error) {
+                                console.log('Error deleting old avatar from Cloudinary:', error);
+                            } else {
+                                console.log('Old avatar deleted from Cloudinary:', result);
+                            }
+                        });
+                    }
+
+                    // Save the new avatar URL
+                    user.avatar = req.file.path;
+                }
+
+                await user.save();
+                req.flash('success', 'Profile updated successfully');
+                return res.redirect('back');
+            });
+        } catch (err) {
+            console.log("Error: ", err);
+            req.flash('error', err.message);
+            return res.redirect('back');
+        }
+    } else {
+        req.flash('error', 'Unauthorized!');
+        return res.status(401).send('Unauthorized');
+    }
+};
+
+
+
+
 // render the signup page
 module.exports.signUp = function(req,res){
    if(req.isAuthenticated()){

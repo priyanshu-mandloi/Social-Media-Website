@@ -68,7 +68,7 @@ body {
     width: 280px;
     padding: 6px;
     color: darkmagenta;
-    font-weight: bold;
+    /* font-weight: bold; */
     text-align: center;
 }
 
@@ -97,4 +97,7 @@ body {
         font-size: 12px;
         color: darkmagenta;
     }
+
+
+
 }
