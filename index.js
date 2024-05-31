@@ -8,7 +8,7 @@ console.log(process.env.PORT);
 const flash = require('connect-flash');
 const app = express();
 // console.log(process.env.port);
-// require('./config/view-he lper')(app);
+// require('./config/view-helper')(app);s
 var expressLayouts = require('express-ejs-layouts');
 const db = require('./config/mongoose');
 const session = require("express-session");
@@ -25,13 +25,9 @@ const chatServer = require('http').createServer(app);
 const chatSockets = require('./config/chats_socket').chatSockets(chatServer);
 chatServer.listen(5000);
 console.log("Chat server is listening on port: 5000");
-
-
 app.use(express.urlencoded({ extended: true })); 
 app.use(cookieParser());
 app.use(express.static('./assets')); 
-
-
 //Make the upload part available to browser
 app.use('/uploads',express.static(__dirname + '/uploads'));
 app.use(logger(enviornment.morgan.mode,enviornment.morgan.options));
@@ -41,7 +37,6 @@ app.set('layout extractScripts',true);
 // for set up view engine.
 app.set('view engine','ejs');
 app.set('views','./views');
-
 // mongo cookie is used to store the session cookie in the db
 // const sessionStore = new MongoStore({
 //  mongoUrl: process.env.DB_URL,
@@ -58,7 +53,6 @@ app.use(session({
       maxAge:(1000*60*100)
     },
     // store:sessionStore,
-        
     function(err){
       console.log(err|| 'connect-mongodb setup ok');
     }
@@ -67,11 +61,11 @@ app.use(session({
 
 
 function dbConnect(){
-mongoose.connect( process.env.DB_URL , {
+mongoose.connect( process.env.DB_URL ,{
   useNewUrlParser:true,
   useUnifiedTopology:true,
   connectTimeoutMS: 10000,
-} )
+})
 
 .then( console.log("DB connected successfully") )
 
@@ -79,12 +73,10 @@ mongoose.connect( process.env.DB_URL , {
             // console.log(error)
             // process. Exit(1)
            })
-
 }
 
 dbConnect();
 
- 
  // To tell that we are using the passport
  app.use(passport.initialize());
  app.use(passport.session());

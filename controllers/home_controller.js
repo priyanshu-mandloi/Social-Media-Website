@@ -53,7 +53,7 @@ module.exports.home = async function(req,res){
       const postArray = Array.isArray(posts) ? posts : [];
       // console.log(postArray);
       return res.render('home',{
-        title:'Codeial | Home',
+        title:'Avlanche | Home',
         posts:postArray,
              all_users:users,
              friends:friends

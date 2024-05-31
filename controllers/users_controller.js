@@ -141,7 +141,7 @@ module.exports.signIn = function(req,res){
     return res.redirect('/users/profile');
   }
     return res.render('users_sign_in',{
-       title:"Codeial | Sign In"
+       title:"Avlanche | Sign In"
     });
 }
 
@@ -191,7 +191,7 @@ module.exports.resetPassword = function(req, res)
 {
     return res.render('reset_password',
     {
-        title: 'Codeial | Reset Password',
+        title: 'Avlanche | Reset Password',
         access: false
     });
 }
@@ -226,7 +226,7 @@ module.exports.setPassword = async function(req, res) {
       
     if (user.isTokenValid) {
       return res.render('reset_password', {
-        title: 'Codeial | Reset Password',
+        title: 'Avlanche | Reset Password',
         access: true,
         accessToken: req.params.accessToken
       });

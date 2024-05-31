@@ -28,6 +28,8 @@ const devlopment ={
      client_ID: "955434243353-f6fihg550sqilp4qamb30i5si2f1emak.apps.googleusercontent.com",
      client_Secret: "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",
      callback_URL: "http://localhost:8000/users/auth/google/callback", 
+    //  callback_URL: "https://avlanche.onrender.com/users/auth/google/callback", 
+         
      jwtStrategy:"codeial",
      morgan:{
         mode:'dev',
@@ -62,3 +64,5 @@ const production = {
 }
 
 module.exports = eval(process.env.Codeial_enviornment)==undefined?devlopment :eval(process.env.Codeial_enviornment) ;                             // Exported the right function
+
+

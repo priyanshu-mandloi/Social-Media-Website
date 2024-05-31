@@ -1,17 +1,17 @@
+// Require and configure dotenv
+require('dotenv').config();
+
 const passport = require("passport");
 const googleStrategy = require("passport-google-oauth").OAuth2Strategy;
 const crypto = require("crypto");
 const User = require("../models/users");
-const { Router } = require("express");
-const enviornment = require('./enviornment');
-
 
 //To tell the passport to use the  google strategy.
 passport.use(
   new googleStrategy({
-    clientID:enviornment.client_ID,
-    clientSecret: enviornment.client_Secret,
-    callbackURL: enviornment.callback_URL,
+    clientID: process.env.Codeial_client_ID,
+    clientSecret: process.env.Codeial_client_Secret,
+    callbackURL: process.env.Codeial_callback_URL,
   },
     async function (accessToken, refreshToken, profile, done) {
       try {
