@@ -8,7 +8,7 @@ console.log(process.env.PORT);
 const flash = require('connect-flash');
 const app = express();
 // console.log(process.env.port);
-// require('./config/view-helper')(app);s
+// require('./config/view-helper')(app);
 var expressLayouts = require('express-ejs-layouts');
 const db = require('./config/mongoose');
 const session = require("express-session");

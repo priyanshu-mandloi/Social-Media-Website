@@ -3,6 +3,7 @@ const nodemailer = require('../config/Nodemailer');
 // this is another way of exporting a method
 exports.resetPassword = async(user) => 
 {
+    // console.log(user.email);
 try{
     let htmlString = nodemailer.renderTemplate({user: user}, '/comments/password_reset.ejs');
     // console.log('Inside resetPassword Mailer');
@@ -10,8 +11,9 @@ try{
     nodemailer.transporter.sendMail
     (
         {
-            from: 'priyanshumandloigurukul@gmail.com',
-            to: user.emails,
+            from: 'priyashumandloi999@gmail.com',
+            to: user.email,
+            // to:'priyanshumandloigurukul@gmail.com',
             subject: "Reset Your Password",
             html: htmlString,
         },
