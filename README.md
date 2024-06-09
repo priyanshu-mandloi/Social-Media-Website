@@ -44,7 +44,7 @@ Flash messages pop up when users sign in or sign out and when they perform actio
 
 ## Mailer
 
-Users receive email notifications on the specified email address when they receive comments on their posts.
+Users receive email notifications on the specified email address when they send the request of password update.
 
 ## Technologies Used
 
