@@ -77,7 +77,7 @@ module.exports.destroy = async function(req, res) {
     } else {
       return res.redirect('back');
     }
-  } catch (err) {
+  } catch (err){
     req.flash('error',err);
     return res.status(500).send("Error in deleting comment");
   }
