@@ -26,7 +26,7 @@
     </form>
     <% } else { %>
       <div class="profile">
-        <img src="/images/images.png" alt="Profile" class="cm7" />
+        <img src="<%= profile_user.avatar ? profile_user.avatar : '/images/images.png' %>" alt="Profile" class="cm7" />
       </div>
       <div class="cm17">
         <p class="cm16">

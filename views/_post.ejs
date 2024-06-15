@@ -6,10 +6,20 @@
   <div class="post-info">
     <div class="top-part">
       <div class="inside">
-        <a href=""><img src="/images/images.png" height="50px" width="50px" alt="" style="border-radius: 50%;"></a>
+        <a href="">
+          <% if (post.user && post.user.avatar) { %>
+            <img src="<%= post.user.avatar %>" height="50px" width="50px" alt="" style="border-radius: 50%;">
+            <% } else { %>
+              <img src="/images/images.png" height="50px" width="50px" alt="" style="border-radius: 50%;">
+              <% } %>
+        </a>
         <div class="posts-user">
           <small>
-            <%= post.user.name %>
+            <% if (post.user && post.user.name) { %>
+              <%= post.user.name %>
+                <% } else { %>
+                  Unknown User
+                  <% } %>
           </small>
           <br>
           <small>
@@ -32,7 +42,7 @@
               <%= post.likes.length %>
                 <% } %>
         </small>
-        <% if(locals.user && locals.user.id==post.user.id){ %>
+        <% if (locals.user && post.user && locals.user.id==post.user.id) { %>
           <small>
             <a class="delete-post-button" href="/posts/destroy/<%=post.id%>" style="text-decoration: none;font-size: 20px;
             color:gray;">
