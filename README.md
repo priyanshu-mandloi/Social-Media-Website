@@ -14,7 +14,9 @@ oad](https://github.com/priyanshu-mandloi/Social-Media-Website/assets/99532489/3
 
 ## Home Page
 ![Screenshot 2023-09-09 151218](https://github.com/priyanshu-mandloi/Social-Media-Website/assets/99532489/d956d714-fe0a-4abe-b891-0eda4fcdc474)
-![er_di![WhatsApp Image 2024-09-12 at 15 15 16_e9426e0d](https://github.com/user-attachments/assets/f7839345-8083-4b06-91c2-6e774a466d8a)
+
+![er_diagram_professional](https://github.com/user-attachments/assets/221ebe15-4621-4a37-9ac9-353afd48c9ca)
+
 ![WhatsApp Image 2024-09-12 at 15 15 16_e9426e0d](https://github.com/user-attachments/assets/9fd792f4-e4f5-40bd-b923-b96979761936)
 
 
