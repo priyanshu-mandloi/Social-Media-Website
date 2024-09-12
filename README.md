@@ -15,8 +15,7 @@ oad](https://github.com/priyanshu-mandloi/Social-Media-Website/assets/99532489/3
 ## Home Page
 ![Screenshot 2023-09-09 151218](https://github.com/priyanshu-mandloi/Social-Media-Website/assets/99532489/d956d714-fe0a-4abe-b891-0eda4fcdc474)
 ![er_di![WhatsApp Image 2024-09-12 at 15 15 16_e9426e0d](https://github.com/user-attachments/assets/f7839345-8083-4b06-91c2-6e774a466d8a)
-agram_professional](https://github.com/user-attachments/assets/ed22921e-5d63-45ff-8da5-b8f10fb038f2)
-
+![WhatsApp Image 2024-09-12 at 15 15 16_e9426e0d](https://github.com/user-attachments/assets/9fd792f4-e4f5-40bd-b923-b96979761936)
 
 
 Avalanche is a dynamic social media web application that allows users to perform CRUD (Create, Read, Update, Delete) operations on posts and comments. It also offers various other features such as user authentication, user management, friend requests, chat functionality, and more.
